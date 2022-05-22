@@ -1,0 +1,29 @@
+<div class="container">
+
+    <h1 class="text-center">Listado de Inquilinos</h1>
+    <table class="table mt-5">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Teléfono</th>
+                <th scope="col">Móvil</th>
+                <th scope="col" class="text-center">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let inquilino of  inquilinos">
+                <th scope="row"> {{ inquilino.id }}</th>
+                <td> {{ inquilino.nombre_inquilino }} {{ inquilino.apellidos_inquilino }}</td>
+                <td> {{ inquilino.telefono_inquilino }}</td>
+                <td> {{ inquilino.movil_inquilino }}</td>
+                <td class="text-center">
+                    <button type="button" name="editar" [routerLink]="['/ficheros/inquilinos/modinquilino/', inquilino.id]" class="btn btn-primary btn-sm mx-1">Ver Recibos</button>
+                    <button type="button" name="editar" [routerLink]="['/ficheros/inquilinos/modinquilino/', inquilino.id]" class="btn btn-success btn-sm mx-1">Detalles</button>
+                    <button type="button" name="editar" [routerLink]="['/ficheros/inquilinos/modinquilino/', inquilino.id]" class="btn btn-warning btn-sm mx-1">editar</button>
+                    <button type="button" name="eliminar" (click)='delete(inquilino)' class="btn btn-danger btn-sm mx-1">eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,123 @@
+<div class="bg-dark vh-100">
+    <app-navbar></app-navbar>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="subNavbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="ficheros/fincas">Fincas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ficheros/propietarios">Propietarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ficheros/inmuebles">Inmuebles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ficheros/inquilinos">Inquilinos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="card bg-dark text-white">
+        <div class="card-header text-center fs-1">{{ titulo }}</div>
+        <div class="card-body">
+
+            <form #propietarioForm="ngForm">
+                <div class="form-group row">
+                    <label for="id" class="col-form-label col-sm-2 d-none">ID</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control d-none" name="id" [(ngModel)]="propietario.id">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="tipo_persona_propietario" class="col-form-label col-sm-2">Tipo Documento</label>
+                    <div class="col-sm-6">
+                        <select name="tipo_persona_propietario" class="form-select" [(ngModel)]="propietario.tipo_persona_propietario" name="tipo_persona_propietario" #tipo_persona_propietario="ngModel">
+                        <option value="true">DNI</option>
+                        <option value="false">CIF</option>
+                      </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="dni_propietario" class="col-form-label col-sm-2">DNI</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" name="dni_propietario" [(ngModel)]="propietario.dni_propietario" name="dni_propietario" #dni_propietario="ngModel">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="nombre_propietario" class="col-form-label col-sm-2">Nombre</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" name="nombre_propietario" [(ngModel)]="propietario.nombre_propietario" name="nombre_propietario" #nombre_propietario="ngModel">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="apellidos_propietario" class="col-form-label col-sm-2">Apellidos</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" name="apellidos_propietario" [(ngModel)]="propietario.apellidos_propietario" name="apellidos_propietario" #apellidos_propietario="ngModel">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="tipo_via_propietario" class="col-form-label col-sm-2">Tipo de Via</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" name="tipo_via_propietario" [(ngModel)]="propietario.tipo_via_propietario" name="tipo_via_propietario" #tipo_via_propietario="ngModel">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="direccion_propietario" class="col-form-label col-sm-2">Dirección</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" name="direccion_propietario" [(ngModel)]="propietario.direccion_propietario" name="direccion_propietario" #direccion_propietario="ngModel">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="numero_propietario" class="col-form-label col-sm-2">Número</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" name="numero_propietario" [(ngModel)]="propietario.numero_propietario" name="numero_propietario" #numero_propietario="ngModel">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="piso_propietario" class="col-form-label col-sm-2">Piso</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" name="piso_propietario" [(ngModel)]="propietario.piso_propietario" name="piso_propietario" #piso_propietario="ngModel">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="letra_propietario" class="col-form-label col-sm-2">Letra</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" name="letra_propietario" [(ngModel)]="propietario.letra_propietario" name="letra_propietario" #letra_propietario="ngModel">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="movil_propietario" class="col-form-label col-sm-2">Móvil</label>
+                    <div class="col-sm-6">
+                        <input type="number" class="form-control" name="movil_propietario" [(ngModel)]="propietario.movil_propietario" name="movil_propietario" #movil_propietario="ngModel">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="telefono_propietario" class="col-form-label col-sm-2">Teléfono</label>
+                    <div class="col-sm-6">
+                        <input type="number" class="form-control" name="telefono_propietario" [(ngModel)]="propietario.telefono_propietario" name="telefono_propietario" #telefono_propietario="ngModel">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="email_propietario" class="col-form-label col-sm-2">Email </label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" name="email_propietario" [(ngModel)]="propietario.email_propietario" name="email_propietario" #email_propietario="ngModel">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="cc_propietario" class="col-form-label col-sm-2">Cuenta Bancaria</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" name="cc_propietario" [(ngModel)]="propietario.cc_propietario" name="cc_propietario" #cc_propietario="ngModel">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="text-center">
+                        <button class="btn btn-warning my-3" role="button">Modificar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

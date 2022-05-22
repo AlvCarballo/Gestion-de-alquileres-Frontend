@@ -1,0 +1,51 @@
+<div class="bg-dark vh-100">
+    <app-navbar></app-navbar>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="subNavbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="ficheros/fincas">Fincas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ficheros/propietarios">Propietarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ficheros/inmuebles">Inmuebles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ficheros/inquilinos">Inquilinos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="card bg-dark text-white">
+        <div class="card-header text-center fs-1">{{ titulo }}</div>
+        <div class="card-body">
+
+            <form #fincaForm="ngForm">
+
+                <div class="form-group row">
+                    <label for="id" class="col-form-label col-sm-2 d-none">ID</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control d-none" name="id" [(ngModel)]="finca.id">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="nombre_finca" class="col-form-label col-sm-2">Nombre</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" [(ngModel)]="finca.nombre_finca" name="nombre" #nombre="ngModel">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <button class="btn btn-warning" role="button" (click)='update()'>Modificar</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+</div>

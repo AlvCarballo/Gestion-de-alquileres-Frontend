@@ -1,0 +1,24 @@
+<div class="container">
+
+    <h1 class="text-center">Listado de Fincas</h1>
+    <table class="table mt-5">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col" class="text-center">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let finca of fincas">
+                <th scope="row"> {{ finca.id }}</th>
+                <td> {{ finca.nombre_finca }}</td>
+                <td class="text-center">
+                    <button type="button" name="editar" [routerLink]="['/ficheros/inmuebles/finca', finca.id]" class="btn btn-primary btn-sm mx-1">Ver Inmuebles</button>
+                    <button type="button" name="editar" [routerLink]="['/ficheros/fincas/modfinca', finca.id]" class="btn btn-warning btn-sm mx-1">editar</button>
+                    <button type="button" name="eliminar" (click)='delete(finca)' class="btn btn-danger btn-sm mx-1">eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,48 @@
+<h1 class="text-center">{{titulo}}</h1>
+<form #inmuebleForm="ngForm">
+
+    <div class="form-group row">
+        <label for="finca" class="col-form-label col-sm-2">Seleccione una finca:</label>
+        <div class="col-sm-6">
+            <select class="form-select" [(ngModel)]="inmueble.finca.id" name="finca" #finca="ngModel">
+              <option value={{finca.id}} *ngFor="let finca of fincas">{{finca.nombre_finca}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inquilino.id" class="col-form-label col-sm-2">Seleccione un Inquilino:</label>
+        <div class="col-sm-6">
+            <select class="form-select" [(ngModel)]="inmueble.inquilino.id" name="inquilino.id" #inquilino.id="ngModel">
+            <option value={{inquilino.id}} *ngFor="let inquilino of inquilinos | orderBy:'nombre_inquilino'">{{inquilino.nombre_inquilino}} {{inquilino.apellidos_inquilino}}</option>
+          </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="propietario.id" class="col-form-label col-sm-2">Seleccione un Propietario:</label>
+        <div class="col-sm-6">
+            <select class="form-select" [(ngModel)]="inmueble.propietario.id" name="propietario.id" #propietario.id="ngModel">
+          <option value={{propietario.id}} *ngFor="let propietario of propietarios | orderBy:'nombre_propietario'">{{propietario.nombre_propietario}} {{propietario.apellidos_propietario}}</option>
+        </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="ref_catastral_inmueble" class="col-form-label col-sm-2">Ref Catastral</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="ref_catastral_inmueble" [(ngModel)]="inmueble.ref_catastral_inmueble">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="piso_inmueble" class="col-form-label col-sm-2">Piso</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="piso_inmueble" [(ngModel)]="inmueble.piso_inmueble">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="letra_inmueble" class="col-form-label col-sm-2">Letra</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="letra_inmueble" [(ngModel)]="inmueble.letra_inmueble">
+        </div>
+    </div>
+
+    <button class="btn btn-primary" role="button" (click)='create()'>Crear</button>
+</form>

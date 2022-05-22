@@ -1,0 +1,43 @@
+<app-navbar></app-navbar>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="subNavbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="ficheros/fincas">Fincas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ficheros/propietarios">Propietarios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ficheros/inquilinos">Inquilinos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="ficheros/inmuebles">Inmuebles</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Nav tabs -->
+<div class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-auto">
+            <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <button class="nav-link active" id="v-pills-listadoinmueble-tab" data-bs-toggle="pill" data-bs-target="#v-pills-listadoinmueble" type="button" role="tab" aria-controls="v-pills-listadoinmueble" aria-selected="true">Listado de Inmuebles</button>
+                <button class="nav-link" id="v-pills-aniadirinmueble-tab" data-bs-toggle="pill" data-bs-target="#v-pills-aniadirinmueble" type="button" role="tab" aria-controls="v-pills-aniadirinmueble" aria-selected="false">Añadir Inmuebles</button>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="tab-content" id="v-pills-tabContent">
+                <div class="tab-pane fade show active" id="v-pills-listadoinmueble" role="tabpanel" aria-labelledby="v-pills-listadoinmueble-tab">
+                    <app-listadoinmueble></app-listadoinmueble>
+                </div>
+                <div class="tab-pane fade" id="v-pills-aniadirinmueble" role="tabpanel" aria-labelledby="v-pills-aniadirinmueble-tab">
+                    <app-addinmueble></app-addinmueble>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+<div class="container">
+
+    <h1 class="text-center">{{titulo}}</h1>
+    <div *ngFor="let propietario of  propietarios">
+        <div *ngIf="idpropietarioinmueble==propietario.id;">
+            <h2 class="text-center">de {{propietario.nombre_propietario}} {{propietario.apellidos_propietario}}</h2>
+        </div>
+    </div>
+    <div *ngFor="let finca of  fincas">
+        <div *ngIf="idfincainmueble==finca.id;">
+            <h2 class="text-center">de {{finca.nombre_finca}}</h2>
+        </div>
+    </div>
+    <table class="table mt-5">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Ref. Catastral</th>
+                <th scope="col">Finca</th>
+                <th scope="col">Piso</th>
+                <th scope="col" class="text-center">Acciones</th>
+            </tr>
+        </thead>
+        <tbody *ngIf="idfincainmueble.length>0">
+            <tr *ngFor="let inmueble of  inmuebles | orderBy: 'finca.nombre_finca' | orderBy: 'piso_inmueble'| orderBy: 'letra_inmueble'">
+                <th scope="row" *ngIf="idfincainmueble==inmueble.finca.id"> {{ inmueble.id }}</th>
+                <td *ngIf="idfincainmueble==inmueble.finca.id">{{ inmueble.ref_catastral_inmueble }}</td>
+                <td *ngIf="idfincainmueble==inmueble.finca.id">{{ inmueble.finca.nombre_finca }}</td>
+                <td *ngIf="idfincainmueble==inmueble.finca.id">{{ inmueble.piso_inmueble }} {{ inmueble.letra_inmueble }}</td>
+                <td *ngIf="idfincainmueble==inmueble.finca.id" class="text-center">
+                    <button type="button" name="editar" [routerLink]="['/ficheros/inmuebles/modinmueble/', inmueble.id]" class="btn btn-warning btn-sm">editar</button>
+                    <button type="button" name="eliminar" (click)='delete(inmueble)' class="btn btn-danger btn-sm">eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+        <tbody *ngIf="idpropietarioinmueble.length>0">
+            <tr *ngFor="let inmueble of  inmuebles | orderBy: 'finca.nombre_finca' | orderBy: 'piso_inmueble'| orderBy: 'letra_inmueble'">
+                <th scope="row" *ngIf="idpropietarioinmueble==inmueble.propietario.id"> {{ inmueble.id }}</th>
+                <td *ngIf="idpropietarioinmueble==inmueble.propietario.id">{{ inmueble.ref_catastral_inmueble }}</td>
+                <td *ngIf="idpropietarioinmueble==inmueble.propietario.id">{{ inmueble.finca.nombre_finca }}</td>
+                <td *ngIf="idpropietarioinmueble==inmueble.propietario.id">{{ inmueble.piso_inmueble }} {{ inmueble.letra_inmueble }}</td>
+                <td *ngIf="idpropietarioinmueble==inmueble.propietario.id" class="text-center">
+                    <button type="button" name="editar" [routerLink]="['/ficheros/inmuebles/modinmueble/', inmueble.id]" class="btn btn-warning btn-sm">editar</button>
+                    <button type="button" name="eliminar" (click)='delete(inmueble)' class="btn btn-danger btn-sm">eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+        <tbody *ngIf="idfincainmueble.length<=0 && idpropietarioinmueble.length<=0">
+            <tr *ngFor="let inmueble of  inmuebles | orderBy: 'finca.nombre_finca' | orderBy: 'piso_inmueble'| orderBy: 'letra_inmueble'">
+                <th scope="row"> {{ inmueble.id }}</th>
+                <td>{{ inmueble.ref_catastral_inmueble }}</td>
+                <td>{{ inmueble.finca.nombre_finca }}</td>
+                <td>{{ inmueble.piso_inmueble }} {{ inmueble.letra_inmueble }}</td>
+                <td class="text-center">
+                    <button type="button" name="editar" [routerLink]="['/ficheros/inmuebles/modinmueble/', inmueble.id]" class="btn btn-warning btn-sm">editar</button>
+                    <button type="button" name="eliminar" (click)='delete(inmueble)' class="btn btn-danger btn-sm">eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

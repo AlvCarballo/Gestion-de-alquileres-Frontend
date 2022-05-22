@@ -1,0 +1,27 @@
+<div class="container">
+
+    <h1 class="text-center">Listado de Propietarios</h1>
+    <table class="table mt-5">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Dirección</th>
+                <th scope="col" class="text-center">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let propietario of  propietarios">
+                <th scope="row"> {{ propietario.id }}</th>
+                <td> {{ propietario.nombre_propietario }} {{ propietario.apellidos_propietario }}</td>
+                <td>{{ propietario.tipo_via_propietario }} {{ propietario.direccion_propietario }} {{ propietario.numero_propietario }}, {{ propietario.piso_propietario }}{{ propietario.letra_propietario }}</td>
+                <td class="text-center">
+                    <button type="button" name="editar" [routerLink]="['/ficheros/inmuebles/propietario', propietario.id]" class="btn btn-primary btn-sm mx-1">Ver Inmuebles</button>
+                    <button type="button" name="editar" [routerLink]="['/ficheros/propietarios/modpropietario/', propietario.id]" class="btn btn-success btn-sm mx-1">Detalles</button>
+                    <button type="button" name="editar" [routerLink]="['/ficheros/propietarios/modpropietario/', propietario.id]" class="btn btn-warning btn-sm mx-1">editar</button>
+                    <button type="button" name="eliminar" (click)='delete(propietario)' class="btn btn-danger btn-sm mx-1">eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
