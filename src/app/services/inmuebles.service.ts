@@ -32,7 +32,7 @@ export class InmueblesService {
     return this.http.post<Inmueble>(this.url, inmueble, {headers: this.httpHeaders})
   }
 
-  getInmueble(id:number): Observable<Inmueble>{
+  getInmueble(id:any): Observable<Inmueble>{
     return this.http.get<Inmueble>(`${this.url}/${id}`).pipe(
       catchError(e => {
         this.router.navigate(['/inmuebles']);

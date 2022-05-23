@@ -1,1 +1,31 @@
-<p>listadorecibos works!</p>
+<div class="container">
+
+    <h1 class="text-center">Listado de Recibos</h1>
+    <table class="table mt-5">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Concepto</th>
+                <th scope="col">importe</th>
+                <th scope="col">Inquilino</th>
+                <th scope="col">Inmueble</th>
+
+                <th scope="col" class="text-center">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let recibo of recibos">
+                <th scope="row"> {{ recibo.id }}</th>
+                <td> {{ recibo.fecha_recibo }}</td>
+                <td> {{ recibo.concepto_recibo }}</td>
+                <td> {{ recibo.importe_recibo }}</td>
+                <td> {{ recibo.inmueble.finca.nombre_finca }}{{ recibo.inmueble.piso_inmueble }}{{ recibo.inmueble.letra_inmueble }}</td>
+                <td> {{ recibo.inquilino.nombre_inquilino }} {{ recibo.inquilino.apellidos_inquilino }}</td>
+                <td class="text-center">
+                    <button type="button" name="editar" [routerLink]="['/recibos/inmuebles/finca', recibo.id]" class="btn btn-primary btn-sm mx-1">Ver Recibo</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

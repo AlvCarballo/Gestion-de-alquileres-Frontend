@@ -30,6 +30,8 @@ import { ModinquilinoComponent } from './ficheros/inquilinos/modinquilino/modinq
 import { RecibosComponent } from './recibos/recibos.component';
 import { ListadorecibosComponent } from './recibos/listadorecibos/listadorecibos.component';
 import {NgPipesModule} from 'ngx-pipes';
+import { DetallepropietarioComponent } from './ficheros/propietarios/detallepropietario/detallepropietario.component';
+import { DetalleinquilinoComponent } from './ficheros/inquilinos/detalleinquilino/detalleinquilino.component';
 
 const routes: Routes = [
   {path: '', redirectTo:'/ficheros', pathMatch:'full'},
@@ -38,12 +40,14 @@ const routes: Routes = [
   {path: 'ficheros/fincas/modfinca/:id', component:ModfincaComponent},
   {path: 'ficheros/propietarios', component:PropietariosComponent},
   {path: 'ficheros/propietarios/modpropietario/:id', component:ModpropietarioComponent},
+  {path: 'ficheros/propietarios/detallepropietario/:id', component:DetallepropietarioComponent},
   {path: 'ficheros/inmuebles', component:InmueblesComponent},
   {path: 'ficheros/inmuebles/finca/:idfincainmueble', component:InmueblesComponent},
   {path: 'ficheros/inmuebles/propietario/:idpropietarioinmueble', component:InmueblesComponent},
   {path: 'ficheros/inmuebles/modinmueble/:id', component:ModinmuebleComponent},
   {path: 'ficheros/inquilinos', component:InquilinosComponent},
   {path: 'ficheros/inquilinos/modinquilino/:id', component:ModinquilinoComponent},
+  {path: 'ficheros/inquilinos/detalleinquilino/:id', component:DetalleinquilinoComponent},
   {path: 'recibos', component:RecibosComponent},
 ];
 
@@ -71,6 +75,8 @@ const routes: Routes = [
     ModinquilinoComponent,
     RecibosComponent,
     ListadorecibosComponent,
+    DetallepropietarioComponent,
+    DetalleinquilinoComponent,
   ],
   imports: [
     BrowserModule,

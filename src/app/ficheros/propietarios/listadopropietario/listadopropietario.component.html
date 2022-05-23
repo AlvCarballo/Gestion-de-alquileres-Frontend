@@ -17,7 +17,7 @@
                 <td>{{ propietario.tipo_via_propietario }} {{ propietario.direccion_propietario }} {{ propietario.numero_propietario }}, {{ propietario.piso_propietario }}{{ propietario.letra_propietario }}</td>
                 <td class="text-center">
                     <button type="button" name="editar" [routerLink]="['/ficheros/inmuebles/propietario', propietario.id]" class="btn btn-primary btn-sm mx-1">Ver Inmuebles</button>
-                    <button type="button" name="editar" [routerLink]="['/ficheros/propietarios/modpropietario/', propietario.id]" class="btn btn-success btn-sm mx-1">Detalles</button>
+                    <button type="button" name="editar" [routerLink]="['/ficheros/propietarios/detallepropietario/', propietario.id]" class="btn btn-success btn-sm mx-1">Detalles</button>
                     <button type="button" name="editar" [routerLink]="['/ficheros/propietarios/modpropietario/', propietario.id]" class="btn btn-warning btn-sm mx-1">editar</button>
                     <button type="button" name="eliminar" (click)='delete(propietario)' class="btn btn-danger btn-sm mx-1">eliminar</button>
                 </td>

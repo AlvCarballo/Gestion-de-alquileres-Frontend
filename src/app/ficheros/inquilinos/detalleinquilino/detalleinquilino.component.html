@@ -1,4 +1,4 @@
-<div class="bg-dark vh-100">
+<div>
     <app-navbar></app-navbar>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
         <div class="container-fluid">
@@ -16,97 +16,93 @@
                     <li class="nav-item">
                         <a class="nav-link" href="ficheros/inmuebles">Inmuebles</a>
                     </li>
+
                 </ul>
             </div>
         </div>
     </nav>
     <a class="btn btn-warning m-3" href="ficheros/inquilinos" role="button">Volver</a>
-    <div class="card bg-dark text-white">
-        <div class="card-header text-center fs-1">{{ titulo }}</div>
+    <div>
+        <div class="text-center fs-1">{{ titulo }}</div>
         <div class="card-body">
 
             <form #inquilinoForm="ngForm">
                 <div class="form-group row">
-                    <label for="id" class="col-form-label col-sm-2 d-none">ID</label>
+                    <label for="id" class="col-form-label col-sm-2">ID</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control d-none" name="id" [(ngModel)]="inquilino.id">
+                        <input disabled="disabled" type="text" class="form-control" name="id" [(ngModel)]="inquilino.id">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="dniInquilino" class="col-form-label col-sm-2">DNI</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" name="dni_inquilino" [(ngModel)]="inquilino.dni_inquilino" name="dni_inquilino" #dni_inquilino="ngModel">
+                        <input disabled="disabled" type="text" class="form-control" name="dni_inquilino" [(ngModel)]="inquilino.dni_inquilino" name="dni_inquilino" #dni_inquilino="ngModel">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="nombreInquilino" class="col-form-label col-sm-2">Nombre</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" name="nombreInquilino" [(ngModel)]="inquilino.nombre_inquilino" name="nombre_inquilino" #nombre_inquilino="ngModel">
+                        <input disabled="disabled" type="text" class="form-control" name="nombreInquilino" [(ngModel)]="inquilino.nombre_inquilino" name="nombre_inquilino" #nombre_inquilino="ngModel">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="apellidosInquilino" class="col-form-label col-sm-2">Apellidos</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" name="apellidosInquilino" [(ngModel)]="inquilino.apellidos_inquilino" name="apellidos_inquilino" #apellidos_inquilino="ngModel">
+                        <input disabled="disabled" type="text" class="form-control" name="apellidosInquilino" [(ngModel)]="inquilino.apellidos_inquilino" name="apellidos_inquilino" #apellidos_inquilino="ngModel">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="tipo_viaInquilino" class="col-form-label col-sm-2">Tipo de Via</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" name="tipo_viaInquilino" [(ngModel)]="inquilino.tipo_via_inquilino" name="tipo_via_inquilino" #tipo_via_inquilino="ngModel">
+                        <input disabled="disabled" type="text" class="form-control" name="tipo_viaInquilino" [(ngModel)]="inquilino.tipo_via_inquilino" name="tipo_via_inquilino" #tipo_via_inquilino="ngModel">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="direccionInquilino" class="col-form-label col-sm-2">Dirección</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" name="direccionInquilino" [(ngModel)]="inquilino.direccion_inquilino" name="direccion_inquilino" #direccion_inquilino="ngModel">
+                        <input disabled="disabled" type="text" class="form-control" name="direccionInquilino" [(ngModel)]="inquilino.direccion_inquilino" name="direccion_inquilino" #direccion_inquilino="ngModel">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="numeroInquilino" class="col-form-label col-sm-2">Número</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" name="numeroInquilino" [(ngModel)]="inquilino.numero_inquilino" name="numero_inquilino" #numero_inquilino="ngModel">
+                        <input disabled="disabled" type="text" class="form-control" name="numeroInquilino" [(ngModel)]="inquilino.numero_inquilino" name="numero_inquilino" #numero_inquilino="ngModel">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="pisoInquilino" class="col-form-label col-sm-2">Piso</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" name="pisoInquilino" [(ngModel)]="inquilino.piso_inquilino" name="piso_inquilino" #piso_inquilino="ngModel">
+                        <input disabled="disabled" type="text" class="form-control" name="pisoInquilino" [(ngModel)]="inquilino.piso_inquilino" name="piso_inquilino" #piso_inquilino="ngModel">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="letraInquilino" class="col-form-label col-sm-2">Letra</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" name="letraInquilino" [(ngModel)]="inquilino.letra_inquilino" name="letra_inquilino" #letra_inquilino="ngModel">
+                        <input disabled="disabled" type="text" class="form-control" name="letraInquilino" [(ngModel)]="inquilino.letra_inquilino" name="letra_inquilino" #letra_inquilino="ngModel">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="movilInquilino" class="col-form-label col-sm-2">Móvil</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" name="movilInquilino" [(ngModel)]="inquilino.movil_inquilino" name="movil_inquilino" #movil_inquilino="ngModel">
+                        <input disabled="disabled" type="text" class="form-control" name="movilInquilino" [(ngModel)]="inquilino.movil_inquilino" name="movil_inquilino" #movil_inquilino="ngModel">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="telefonoInquilino" class="col-form-label col-sm-2">Teléfono</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" name="telefonoInquilino" [(ngModel)]="inquilino.telefono_inquilino" name="telefono_inquilino" #telefono_inquilino="ngModel">
+                        <input disabled="disabled" type="text" class="form-control" name="telefonoInquilino" [(ngModel)]="inquilino.telefono_inquilino" name="telefono_inquilino" #telefono_inquilino="ngModel">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="emailInquilino" class="col-form-label col-sm-2">Email </label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" name="emailInquilino" [(ngModel)]="inquilino.email_inquilino" name="email_inquilino" #email_inquilino="ngModel">
+                        <input disabled="disabled" type="text" class="form-control" name="emailInquilino" [(ngModel)]="inquilino.email_inquilino" name="email_inquilino" #email_inquilino="ngModel">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="ccInquilino" class="col-form-label col-sm-2">Cuenta Bancaria</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" name="ccInquilino" [(ngModel)]="inquilino.cc_inquilino" name="cc_inquilino" #cc_inquilino="ngModel">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="text-center">
-                        <button class="btn btn-warning my-3" role="button">Modificar</button>
+                        <input disabled="disabled" type="text" class="form-control" name="ccInquilino" [(ngModel)]="inquilino.cc_inquilino" name="cc_inquilino" #cc_inquilino="ngModel">
                     </div>
                 </div>
             </form>
