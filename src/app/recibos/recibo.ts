@@ -6,6 +6,6 @@ export class Recibo{
   concepto_recibo?:string;
   fecha_recibo?:string;
   importe_recibo?:string;
-  inmueble?: Inmueble=new Inmueble();
-  inquilino?: Inquilino=new Inquilino();
+  inmueble: Inmueble=new Inmueble();
+  inquilino: Inquilino=new Inquilino();
 }

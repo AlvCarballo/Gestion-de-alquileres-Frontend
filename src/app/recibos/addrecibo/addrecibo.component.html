@@ -1,0 +1,41 @@
+<h1 class="text-center">{{titulo}}</h1>
+<form #reciboForm="ngForm">
+
+    <div class="form-group row">
+        <label for="inmueble.id" class="col-form-label col-sm-2">Seleccione una inmueble:</label>
+        <div class="col-sm-6">
+            <select class="form-select" [(ngModel)]="recibo.inmueble.id" name="inmueble.id" #inmueble.id="ngModel">
+              <option value={{inmueble.id}} *ngFor="let inmueble of inmuebles">{{inmueble.finca.nombre_finca}} {{inmueble.piso_inmueble}} {{inmueble.letra_inmueble}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inquilino.id" class="col-form-label col-sm-2">Seleccione un inquilino:</label>
+        <div class="col-sm-6">
+            <select class="form-select" [(ngModel)]="recibo.inquilino.id" name="inquilino.id" #inquilino.id="ngModel">
+            <option value={{inquilino.id}} *ngFor="let inquilino of inquilinos"> {{inquilino.nombre_inquilino}} {{inquilino.apellidos_inquilino}}</option>
+          </select>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="concepto_recibo" class="col-form-label col-sm-2">Concepto Recibo</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="concepto_recibo" [(ngModel)]="recibo.concepto_recibo">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="fecha_recibo" class="col-form-label col-sm-2">Fecha</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="fecha_recibo" [(ngModel)]="recibo.fecha_recibo">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="importe_recibo" class="col-form-label col-sm-2">Importe</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="importe_recibo" [(ngModel)]="recibo.importe_recibo">
+        </div>
+    </div>
+
+    <button class="btn btn-primary" role="button" (click)='create()'>Crear</button>
+</form>

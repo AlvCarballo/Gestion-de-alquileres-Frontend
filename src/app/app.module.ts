@@ -32,10 +32,11 @@ import { ListadorecibosComponent } from './recibos/listadorecibos/listadorecibos
 import {NgPipesModule} from 'ngx-pipes';
 import { DetallepropietarioComponent } from './ficheros/propietarios/detallepropietario/detallepropietario.component';
 import { DetalleinquilinoComponent } from './ficheros/inquilinos/detalleinquilino/detalleinquilino.component';
+import { AddreciboComponent } from './recibos/addrecibo/addrecibo.component';
 
 const routes: Routes = [
   {path: '', redirectTo:'/ficheros', pathMatch:'full'},
-  {path: 'ficheros', component:FicherosComponent},
+  {path: 'ficheros', component:FincasComponent},
   {path: 'ficheros/fincas', component:FincasComponent},
   {path: 'ficheros/fincas/modfinca/:id', component:ModfincaComponent},
   {path: 'ficheros/propietarios', component:PropietariosComponent},
@@ -49,6 +50,7 @@ const routes: Routes = [
   {path: 'ficheros/inquilinos/modinquilino/:id', component:ModinquilinoComponent},
   {path: 'ficheros/inquilinos/detalleinquilino/:id', component:DetalleinquilinoComponent},
   {path: 'recibos', component:RecibosComponent},
+  {path: 'recibos/addrecibo', component:AddreciboComponent},
 ];
 
 @NgModule({
@@ -77,6 +79,7 @@ const routes: Routes = [
     ListadorecibosComponent,
     DetallepropietarioComponent,
     DetalleinquilinoComponent,
+    AddreciboComponent,
   ],
   imports: [
     BrowserModule,

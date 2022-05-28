@@ -1,5 +1,5 @@
 <div class="container">
-
+    <a name="" id="" class="btn btn-success m-3" href="recibos/addrecibo" role="button">Crear Recibo</a>
     <h1 class="text-center">Listado de Recibos</h1>
     <table class="table mt-5">
         <thead>
@@ -15,9 +15,9 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let recibo of recibos">
+            <tr *ngFor="let recibo of recibos | orderBy: 'fecha_recibo'">
                 <th scope="row"> {{ recibo.id }}</th>
-                <td> {{ recibo.fecha_recibo }}</td>
+                <td> {{ recibo.fecha_recibo | date:'dd/MM/yyyy' }} </td>
                 <td> {{ recibo.concepto_recibo }}</td>
                 <td> {{ recibo.importe_recibo }}</td>
                 <td> {{ recibo.inmueble.finca.nombre_finca }}{{ recibo.inmueble.piso_inmueble }}{{ recibo.inmueble.letra_inmueble }}</td>
