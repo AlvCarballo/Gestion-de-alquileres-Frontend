@@ -12,6 +12,7 @@ import { Inquilino } from '../inquilino';
 export class ListadoinquilinoComponent implements OnInit {
 
   inquilinos:any;
+  searchText:any;
 
   swalWithBootstrapButtons = swal.mixin({
     customClass: {

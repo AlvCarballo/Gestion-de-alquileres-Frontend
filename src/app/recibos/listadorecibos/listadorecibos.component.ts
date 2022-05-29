@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, PipeTransform } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Inmueble } from 'src/app/ficheros/inmuebles/inmueble';
 import { FincasService } from 'src/app/services/fincas.service';
@@ -14,7 +14,8 @@ import { Recibo } from '../recibo';
   styles: [
   ]
 })
-export class ListadorecibosComponent implements OnInit {
+
+export class ListadorecibosComponent implements OnInit, PipeTransform  {
 
   recibos:any;
   inmuebles:any;
@@ -23,6 +24,7 @@ export class ListadorecibosComponent implements OnInit {
   titulo:string = "Listado de Inmuebles";
   idfincainmueble:string = "";
   idpropietarioinmueble:string = "";
+  searchText: any;
 
   swalWithBootstrapButtons = swal.mixin({
     customClass: {
@@ -39,6 +41,9 @@ export class ListadorecibosComponent implements OnInit {
     private inmueblesService:InmueblesService,
     private propietarioService:PropietarioService,
     private fincasService:FincasService) { }
+  transform(value: any, ...args: any[]) {
+    throw new Error('Method not implemented.');
+  }
 
   ngOnInit(): void {
     this.obtenerRecibos();

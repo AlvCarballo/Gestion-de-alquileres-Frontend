@@ -1,5 +1,7 @@
 <div class="container">
-
+    <div class="col-4 offset-8">
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="on" placeholder="Buscar">
+    </div>
     <h1 class="text-center">Listado de Propietarios</h1>
     <table class="table mt-5">
         <thead>
@@ -11,7 +13,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let propietario of  propietarios">
+            <tr *ngFor="let propietario of  propietarios  | filter:searchText">
                 <th scope="row"> {{ propietario.id }}</th>
                 <td> {{ propietario.nombre_propietario }} {{ propietario.apellidos_propietario }}</td>
                 <td>{{ propietario.tipo_via_propietario }} {{ propietario.direccion_propietario }} {{ propietario.numero_propietario }}, {{ propietario.piso_propietario }}{{ propietario.letra_propietario }}</td>

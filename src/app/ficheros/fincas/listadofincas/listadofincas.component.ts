@@ -10,6 +10,7 @@ import { Finca } from '../finca';
 export class ListadofincasComponent implements OnInit {
 
   fincas:any;
+  searchText:any;
   swalWithBootstrapButtons = swal.mixin({
     customClass: {
       confirmButton: 'btn btn-success mx-2',

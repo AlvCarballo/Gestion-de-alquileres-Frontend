@@ -33,6 +33,7 @@ import {NgPipesModule} from 'ngx-pipes';
 import { DetallepropietarioComponent } from './ficheros/propietarios/detallepropietario/detallepropietario.component';
 import { DetalleinquilinoComponent } from './ficheros/inquilinos/detalleinquilino/detalleinquilino.component';
 import { AddreciboComponent } from './recibos/addrecibo/addrecibo.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 const routes: Routes = [
   {path: '', redirectTo:'/ficheros', pathMatch:'full'},
@@ -86,7 +87,8 @@ const routes: Routes = [
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot(routes),
-    NgPipesModule
+    NgPipesModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

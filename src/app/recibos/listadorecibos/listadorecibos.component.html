@@ -1,6 +1,9 @@
 <div class="container">
     <a name="" id="" class="btn btn-success m-3" href="recibos/addrecibo" role="button">Crear Recibo</a>
-    <h1 class="text-center">Listado de Recibos</h1>
+    <div class="col-4 offset-8">
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="on" placeholder="Buscar">
+    </div>
+    <h1 class="text-center mt-5">Listado de Recibos</h1>
     <table class="table mt-5">
         <thead>
             <tr>
@@ -15,7 +18,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let recibo of recibos | orderBy: 'fecha_recibo'">
+            <tr *ngFor="let recibo of recibos | filter:searchText | orderBy: 'fecha_recibo'">
                 <th scope="row"> {{ recibo.id }}</th>
                 <td> {{ recibo.fecha_recibo | date:'dd/MM/yyyy' }} </td>
                 <td> {{ recibo.concepto_recibo }}</td>

@@ -9,6 +9,7 @@ import swal from 'sweetalert2';
 })
 export class ListadopropietarioComponent implements OnInit {
   propietarios:any;
+  searchText: any;
 
   swalWithBootstrapButtons = swal.mixin({
     customClass: {

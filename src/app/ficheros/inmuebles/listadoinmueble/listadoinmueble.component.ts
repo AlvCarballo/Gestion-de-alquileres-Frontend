@@ -20,6 +20,7 @@ export class ListadoinmuebleComponent implements OnInit {
   titulo:string = "Listado de Inmuebles";
   idfincainmueble:string = "";
   idpropietarioinmueble:string = "";
+  searchText:any;
 
   swalWithBootstrapButtons = swal.mixin({
     customClass: {

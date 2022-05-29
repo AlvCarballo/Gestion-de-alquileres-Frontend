@@ -1,7 +1,9 @@
 <div class="container">
-
+    <div class="col-4 offset-8">
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="on" placeholder="Buscar">
+    </div>
     <h1 class="text-center">{{titulo}}</h1>
-    <div *ngFor="let propietario of  propietarios">
+    <div *ngFor="let propietario of  propietarios | filter:searchText">
         <div *ngIf="idpropietarioinmueble==propietario.id;">
             <h2 class="text-center">de {{propietario.nombre_propietario}} {{propietario.apellidos_propietario}}</h2>
         </div>
@@ -22,7 +24,7 @@
             </tr>
         </thead>
         <tbody *ngIf="idfincainmueble.length>0">
-            <tr *ngFor="let inmueble of  inmuebles | orderBy: 'finca.nombre_finca' | orderBy: 'piso_inmueble'| orderBy: 'letra_inmueble'">
+            <tr *ngFor="let inmueble of  inmuebles | filter:searchText | orderBy: 'finca.nombre_finca' | orderBy: 'piso_inmueble'| orderBy: 'letra_inmueble'">
                 <th scope="row" *ngIf="idfincainmueble==inmueble.finca.id"> {{ inmueble.id }}</th>
                 <td *ngIf="idfincainmueble==inmueble.finca.id">{{ inmueble.ref_catastral_inmueble }}</td>
                 <td *ngIf="idfincainmueble==inmueble.finca.id">{{ inmueble.finca.nombre_finca }}</td>
@@ -34,7 +36,7 @@
             </tr>
         </tbody>
         <tbody *ngIf="idpropietarioinmueble.length>0">
-            <tr *ngFor="let inmueble of  inmuebles | orderBy: 'finca.nombre_finca' | orderBy: 'piso_inmueble'| orderBy: 'letra_inmueble'">
+            <tr *ngFor="let inmueble of  inmuebles | filter:searchText | orderBy: 'finca.nombre_finca' | orderBy: 'piso_inmueble'| orderBy: 'letra_inmueble'">
                 <th scope="row" *ngIf="idpropietarioinmueble==inmueble.propietario.id"> {{ inmueble.id }}</th>
                 <td *ngIf="idpropietarioinmueble==inmueble.propietario.id">{{ inmueble.ref_catastral_inmueble }}</td>
                 <td *ngIf="idpropietarioinmueble==inmueble.propietario.id">{{ inmueble.finca.nombre_finca }}</td>
@@ -46,7 +48,7 @@
             </tr>
         </tbody>
         <tbody *ngIf="idfincainmueble.length<=0 && idpropietarioinmueble.length<=0">
-            <tr *ngFor="let inmueble of  inmuebles | orderBy: 'finca.nombre_finca' | orderBy: 'piso_inmueble'| orderBy: 'letra_inmueble'">
+            <tr *ngFor="let inmueble of  inmuebles | filter:searchText | orderBy: 'finca.nombre_finca' | orderBy: 'piso_inmueble'| orderBy: 'letra_inmueble'">
                 <th scope="row"> {{ inmueble.id }}</th>
                 <td>{{ inmueble.ref_catastral_inmueble }}</td>
                 <td>{{ inmueble.finca.nombre_finca }}</td>

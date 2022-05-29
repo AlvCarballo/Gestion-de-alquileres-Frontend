@@ -1,5 +1,7 @@
 <div class="container">
-
+    <div class="col-4 offset-8">
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="on" placeholder="Buscar">
+    </div>
     <h1 class="text-center">Listado de Inquilinos</h1>
     <table class="table mt-5">
         <thead>
@@ -12,7 +14,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let inquilino of  inquilinos">
+            <tr *ngFor="let inquilino of  inquilinos | filter:searchText">
                 <th scope="row"> {{ inquilino.id }}</th>
                 <td> {{ inquilino.nombre_inquilino }} {{ inquilino.apellidos_inquilino }}</td>
                 <td> {{ inquilino.telefono_inquilino }}</td>

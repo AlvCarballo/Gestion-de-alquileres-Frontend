@@ -1,6 +1,5 @@
 <h1 class="text-center">{{titulo}}</h1>
 <form #reciboForm="ngForm">
-
     <div class="form-group row">
         <label for="inmueble.id" class="col-form-label col-sm-2">Seleccione una inmueble:</label>
         <div class="col-sm-6">
@@ -9,15 +8,17 @@
             </select>
         </div>
     </div>
-    <div class="form-group row">
-        <label for="inquilino.id" class="col-form-label col-sm-2">Seleccione un inquilino:</label>
+    <div *ngIf="recibo.inmueble.id!=null" class="form-group row">
+        <label for="inquilino.id" class="col-form-label col-sm-2">Inquilino:</label>
         <div class="col-sm-6">
             <select class="form-select" [(ngModel)]="recibo.inquilino.id" name="inquilino.id" #inquilino.id="ngModel">
-            <option value={{inquilino.id}} *ngFor="let inquilino of inquilinos"> {{inquilino.nombre_inquilino}} {{inquilino.apellidos_inquilino}}</option>
-          </select>
+              <ng-container *ngFor="let inmueble of inmuebles">
+                <option value={{inmueble.inquilino.id}} *ngIf="recibo.inmueble.id==inmueble.id"> {{inmueble.inquilino.nombre_inquilino}} {{inmueble.inquilino.apellidos_inquilino}}</option>
+              </ng-container>
+
+        </select>
         </div>
     </div>
-
     <div class="form-group row">
         <label for="concepto_recibo" class="col-form-label col-sm-2">Concepto Recibo</label>
         <div class="col-sm-6">
