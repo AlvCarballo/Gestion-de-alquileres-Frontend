@@ -21,7 +21,7 @@ export class AddfincaComponent implements OnInit {
   create(): void {
     this.fincaService.create(this.finca)
       .subscribe(finca => {
-        this.router.navigate(['/fincas'])
+        this.router.navigate(['ficheros/fincas'])
         swal.fire('Nueva finca', 'Finca creada con éxito!', 'success')
 
        }

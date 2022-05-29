@@ -70,10 +70,12 @@
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "configurations": {
                         "production": {
-                            "browserTarget": "alquileres:build:production"
+                            "browserTarget": "alquileres:build:production",
+                            "proxyConfig": "proxy.conf.json"
                         },
                         "development": {
-                            "browserTarget": "alquileres:build:development"
+                            "browserTarget": "alquileres:build:development",
+                            "proxyConfig": "proxy.conf.json"
                         }
                     },
                     "defaultConfiguration": "development"

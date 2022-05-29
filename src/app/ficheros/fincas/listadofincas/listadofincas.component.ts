@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FincasService } from 'src/app/services/fincas.service';
 import swal from 'sweetalert2';
 import { Finca } from '../finca';
@@ -20,7 +21,7 @@ export class ListadofincasComponent implements OnInit {
     buttonsStyling: false
   })
 
-  constructor(private fincasService:FincasService) { }
+  constructor(private fincasService:FincasService, private router: Router) { }
 
   ngOnInit(): void {
     this.obtenerFincas();
@@ -41,7 +42,7 @@ export class ListadofincasComponent implements OnInit {
       cancelButtonText: 'No'
     }).then((result) => {
       if (result.value) {
-
+        this.router.navigate(['ficheros/fincas'])
         this.fincasService.delete(finca.id).subscribe(
           () => {
             this.fincas = this.fincas.filter((finca: any) => finca !== finca)
