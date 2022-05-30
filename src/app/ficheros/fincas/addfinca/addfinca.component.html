@@ -1,10 +1,10 @@
 <h1 class="text-center">{{titulo}}</h1>
-<form>
+<form #f="ngForm">
     <div class="form-group row">
         <label for="nombre_finca" class="col-form-label col-sm-2">Nombre</label>
         <div class="col-sm-6">
-            <input type="text" class="form-control" name="nombre_finca" required minlength="1" [(ngModel)]="finca.nombre_finca">
+            <input type="text" class="form-control" name="nombre_finca" ngModel required [(ngModel)]="finca.nombre_finca">
         </div>
     </div>
-    <button class="btn btn-primary" role="button" (click)='create()'>Crear</button>
+    <button class="btn btn-primary" role="button" (click)='create()' [disabled]="f.invalid">Crear</button>
 </form>

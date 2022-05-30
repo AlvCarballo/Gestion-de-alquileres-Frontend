@@ -1,9 +1,9 @@
 <h1 class="text-center">{{titulo}}</h1>
-<form>
+<form #propietarioForm="ngForm">
     <div class="form-group row">
         <label for="tipo_persona_propietario" class="col-form-label col-sm-2">Tipo Documento</label>
         <div class="col-sm-6">
-            <select name="tipo_persona_propietario" class="form-select" [(ngModel)]="propietario.tipo_persona_propietario">
+            <select name="tipo_persona_propietario" class="form-select" [(ngModel)]="propietario.tipo_persona_propietario" ngModel required>
               <option value="true" selected>DNI</option>
               <option value="false">CIF</option>
             </select>
@@ -12,43 +12,43 @@
     <div class="form-group row">
         <label for="dniPropietario" class="col-form-label col-sm-2">DNI</label>
         <div class="col-sm-6">
-            <input type="text" class="form-control" name="dni_propietario" [(ngModel)]="propietario.dni_propietario">
+            <input type="text" class="form-control" name="dni_propietario" [(ngModel)]="propietario.dni_propietario" ngModel required>
         </div>
     </div>
     <div class="form-group row">
         <label for="nombre_propietario" class="col-form-label col-sm-2">Nombre</label>
         <div class="col-sm-6">
-            <input type="text" class="form-control" name="nombre_propietario" [(ngModel)]="propietario.nombre_propietario">
+            <input type="text" class="form-control" name="nombre_propietario" [(ngModel)]="propietario.nombre_propietario" ngModel required>
         </div>
     </div>
     <div class="form-group row">
         <label for="apellidos_propietario" class="col-form-label col-sm-2">Apellidos</label>
         <div class="col-sm-6">
-            <input type="text" class="form-control" name="apellidos_propietario" [(ngModel)]="propietario.apellidos_propietario">
+            <input type="text" class="form-control" name="apellidos_propietario" [(ngModel)]="propietario.apellidos_propietario" ngModel required>
         </div>
     </div>
     <div class="form-group row">
         <label for="tipo_via_propietario" class="col-form-label col-sm-2">Tipo de Via</label>
         <div class="col-sm-6">
-            <input type="text" class="form-control" name="tipo_via_propietario" [(ngModel)]="propietario.tipo_via_propietario">
+            <input type="text" class="form-control" name="tipo_via_propietario" [(ngModel)]="propietario.tipo_via_propietario" ngModel required>
         </div>
     </div>
     <div class="form-group row">
         <label for="direccion_propietario" class="col-form-label col-sm-2">Dirección</label>
         <div class="col-sm-6">
-            <input type="text" class="form-control" name="direccion_propietario" [(ngModel)]="propietario.direccion_propietario">
+            <input type="text" class="form-control" name="direccion_propietario" [(ngModel)]="propietario.direccion_propietario" ngModel required>
         </div>
     </div>
     <div class="form-group row">
         <label for="numero_propietario" class="col-form-label col-sm-2">Número</label>
         <div class="col-sm-6">
-            <input type="text" class="form-control" name="numero_propietario" [(ngModel)]="propietario.numero_propietario">
+            <input type="text" class="form-control" name="numero_propietario" [(ngModel)]="propietario.numero_propietario" ngModel required>
         </div>
     </div>
     <div class="form-group row">
         <label for="piso_propietario" class="col-form-label col-sm-2">Piso</label>
         <div class="col-sm-6">
-            <input type="text" class="form-control" name="piso_propietario" [(ngModel)]="propietario.piso_propietario">
+            <input type="text" class="form-control" name="piso_propietario" [(ngModel)]="propietario.piso_propietario" ngModel required>
         </div>
     </div>
     <div class="form-group row">
@@ -82,7 +82,7 @@
         </div>
     </div>
     <div class="text-center">
-        <button class="btn btn-primary my-3" role="button" (click)='create()'>Crear</button>
+        <button class="btn btn-primary my-3" role="button" (click)='create()' [disabled]="propietarioForm.invalid">Crear</button>
     </div>
 
 </form>

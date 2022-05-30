@@ -1,42 +1,46 @@
-<h1 class="text-center">{{titulo}}</h1>
-<form #reciboForm="ngForm">
-    <div class="form-group row">
-        <label for="inmueble.id" class="col-form-label col-sm-2">Seleccione una inmueble:</label>
-        <div class="col-sm-6">
-            <select class="form-select" [(ngModel)]="recibo.inmueble.id" name="inmueble.id" #inmueble.id="ngModel">
+<app-navbar></app-navbar>
+<a class="btn btn-warning m-3" href="recibos" role="button">Volver</a>
+<div class="card-body">
+    <h1 class="text-center">{{titulo}}</h1>
+    <form #reciboForm="ngForm">
+        <div class="form-group row">
+            <label for="inmueble.id" class="col-form-label col-sm-2">Seleccione una inmueble:</label>
+            <div class="col-sm-6">
+                <select class="form-select" [(ngModel)]="recibo.inmueble.id" name="inmueble.id" #inmueble.id="ngModel" ngModel required>
               <option value={{inmueble.id}} *ngFor="let inmueble of inmuebles">{{inmueble.finca.nombre_finca}} {{inmueble.piso_inmueble}} {{inmueble.letra_inmueble}}</option>
             </select>
+            </div>
         </div>
-    </div>
-    <div *ngIf="recibo.inmueble.id!=null" class="form-group row">
-        <label for="inquilino.id" class="col-form-label col-sm-2">Inquilino:</label>
-        <div class="col-sm-6">
-            <select class="form-select" [(ngModel)]="recibo.inquilino.id" name="inquilino.id" #inquilino.id="ngModel">
+        <div *ngIf="recibo.inmueble.id!=null" class="form-group row">
+            <label for="inquilino.id" class="col-form-label col-sm-2">Inquilino:</label>
+            <div class="col-sm-6">
+                <select class="form-select" [(ngModel)]="recibo.inquilino.id" name="inquilino.id" #inquilino.id="ngModel" ngModel required>
               <ng-container *ngFor="let inmueble of inmuebles">
                 <option value={{inmueble.inquilino.id}} *ngIf="recibo.inmueble.id==inmueble.id"> {{inmueble.inquilino.nombre_inquilino}} {{inmueble.inquilino.apellidos_inquilino}}</option>
               </ng-container>
 
         </select>
+            </div>
         </div>
-    </div>
-    <div class="form-group row">
-        <label for="concepto_recibo" class="col-form-label col-sm-2">Concepto Recibo</label>
-        <div class="col-sm-6">
-            <input type="text" class="form-control" name="concepto_recibo" [(ngModel)]="recibo.concepto_recibo">
+        <div class="form-group row">
+            <label for="concepto_recibo" class="col-form-label col-sm-2">Concepto Recibo</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" name="concepto_recibo" [(ngModel)]="recibo.concepto_recibo" ngModel required>
+            </div>
         </div>
-    </div>
-    <div class="form-group row">
-        <label for="fecha_recibo" class="col-form-label col-sm-2">Fecha</label>
-        <div class="col-sm-6">
-            <input type="text" class="form-control" name="fecha_recibo" [(ngModel)]="recibo.fecha_recibo">
+        <div class="form-group row">
+            <label for="fecha_recibo" class="col-form-label col-sm-2">Fecha</label>
+            <div class="col-sm-6">
+                <input type="date" class="form-control" name="fecha_recibo" [(ngModel)]="recibo.fecha_recibo" ngModel required>
+            </div>
         </div>
-    </div>
-    <div class="form-group row">
-        <label for="importe_recibo" class="col-form-label col-sm-2">Importe</label>
-        <div class="col-sm-6">
-            <input type="text" class="form-control" name="importe_recibo" [(ngModel)]="recibo.importe_recibo">
+        <div class="form-group row">
+            <label for="importe_recibo" class="col-form-label col-sm-2">Importe</label>
+            <div class="col-sm-6">
+                <input type="number" class="form-control" name="importe_recibo" [(ngModel)]="recibo.importe_recibo" ngModel required>
+            </div>
         </div>
-    </div>
 
-    <button class="btn btn-primary" role="button" (click)='create()'>Crear</button>
-</form>
+        <button class="btn btn-primary" role="button" (click)='create()' [disabled]="reciboForm.invalid">Crear</button>
+    </form>
+</div>
