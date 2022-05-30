@@ -26,7 +26,7 @@
                 <td> {{ recibo.inmueble.finca.nombre_finca }}{{ recibo.inmueble.piso_inmueble }}{{ recibo.inmueble.letra_inmueble }}</td>
                 <td> {{ recibo.inquilino.nombre_inquilino }} {{ recibo.inquilino.apellidos_inquilino }}</td>
                 <td class="text-center">
-                    <button type="button" name="editar" [routerLink]="['/recibos/inmuebles/finca', recibo.id]" class="btn btn-primary btn-sm mx-1">Ver Recibo</button>
+                    <button type="button" name="editar" [routerLink]="['/recibos/detallerecibo', recibo.id]" class="btn btn-primary btn-sm mx-1">Ver Recibo</button>
                 </td>
             </tr>
         </tbody>

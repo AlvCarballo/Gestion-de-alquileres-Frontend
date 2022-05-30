@@ -33,10 +33,10 @@ export class RecibosService {
     return this.http.post<Recibo>(this.url, recibo, {headers: this.httpHeaders})
   }
 
-  getInmueble(id:any): Observable<Recibo>{
+  getRecibo(id:any): Observable<Recibo>{
     return this.http.get<Recibo>(`${this.url}/${id}`).pipe(
       catchError(e => {
-        this.router.navigate(['/recibos']);
+        this.router.navigate(['recibos']);
         console.error(e.error.mensaje);
         Swal.fire('Error al editar', e.error.mensaje, 'error');
         return throwError(e);

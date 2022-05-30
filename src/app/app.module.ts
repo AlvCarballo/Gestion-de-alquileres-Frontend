@@ -34,6 +34,7 @@ import { DetallepropietarioComponent } from './ficheros/propietarios/detalleprop
 import { DetalleinquilinoComponent } from './ficheros/inquilinos/detalleinquilino/detalleinquilino.component';
 import { AddreciboComponent } from './recibos/addrecibo/addrecibo.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { DetallereciboComponent } from './recibos/detallerecibo/detallerecibo.component';
 
 const routes: Routes = [
   {path: '', redirectTo:'/ficheros', pathMatch:'full'},
@@ -52,6 +53,7 @@ const routes: Routes = [
   {path: 'ficheros/inquilinos/detalleinquilino/:id', component:DetalleinquilinoComponent},
   {path: 'recibos', component:RecibosComponent},
   {path: 'recibos/addrecibo', component:AddreciboComponent},
+  {path: 'recibos/detallerecibo/:id', component:DetallereciboComponent},
 ];
 
 @NgModule({
@@ -81,6 +83,7 @@ const routes: Routes = [
     DetallepropietarioComponent,
     DetalleinquilinoComponent,
     AddreciboComponent,
+    DetallereciboComponent,
   ],
   imports: [
     BrowserModule,

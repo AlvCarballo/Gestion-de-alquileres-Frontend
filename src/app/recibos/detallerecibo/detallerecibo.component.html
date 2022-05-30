@@ -1,0 +1,79 @@
+<div>
+    <app-navbar></app-navbar>
+
+    <a class="btn btn-warning m-3" href="recibos" role="button">Volver</a>
+    <div>
+        <div class="text-center fs-1">{{ titulo }}</div>
+        <div class="card-body">
+
+            <form #propietarioForm="ngForm">
+                <div class="form-group row">
+                    <label for="id" class="col-form-label col-sm-2">ID</label>
+                    <div class="col-sm-6">
+                        <input disabled="disabled" type="text" class="form-control" name="id" [(ngModel)]="recibo.id">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="nombre_inquilino" class="col-form-label col-sm-2">Nombre Inquilino</label>
+                    <div class="col-sm-6">
+                        <input disabled="disabled" type="text" class="form-control" name="nombre_inquilino" [(ngModel)]="recibo.inquilino.nombre_inquilino" name="nombre_inquilino" #nombre_inquilino="ngModel">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="apellidos_inquilino" class="col-form-label col-sm-2">Apellidos Inquilino</label>
+                    <div class="col-sm-6">
+                        <input disabled="disabled" type="text" class="form-control" name="apellidos_inquilino" [(ngModel)]="recibo.inquilino.apellidos_inquilino" name="apellidos_inquilino" #apellidos_inquilino="ngModel">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="dni_inquilino" class="col-form-label col-sm-2">DNI Inquilino</label>
+                    <div class="col-sm-6">
+                        <input disabled="disabled" type="text" class="form-control" name="dni_inquilino" [(ngModel)]="recibo.inquilino.dni_inquilino" name="dni_inquilino" #dni_inquilino="ngModel">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="nombre_finca" class="col-form-label col-sm-2">Finca</label>
+                    <div class="col-sm-6">
+                        <input disabled="disabled" type="text" class="form-control" name="nombre_finca" [(ngModel)]="recibo.inmueble.finca.nombre_finca" name="nombre_finca" #nombre_finca="ngModel">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="piso_inmueble" class="col-form-label col-sm-2">Piso</label>
+                    <div class="col-sm-6">
+                        <input disabled="disabled" type="text" class="form-control" name="piso_inmueble" [(ngModel)]="recibo.inmueble.piso_inmueble" name="piso_inmueble" #piso_inmueble="ngModel">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="letra_inmueble" class="col-form-label col-sm-2">Letra</label>
+                    <div class="col-sm-6">
+                        <input disabled="disabled" type="text" class="form-control" name="letra_inmueble" [(ngModel)]="recibo.inmueble.letra_inmueble" name="letra_inmueble" #letra_inmueble="ngModel">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="ref_catastral_inmueble" class="col-form-label col-sm-2">Ref Catastral</label>
+                    <div class="col-sm-6">
+                        <input disabled="disabled" type="text" class="form-control" name="ref_catastral_inmueble" [(ngModel)]="recibo.inmueble.ref_catastral_inmueble" name="ref_catastral_inmueble" #ref_catastral_inmueble="ngModel">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="concepto_recibo" class="col-form-label col-sm-2">Concepto</label>
+                    <div class="col-sm-6">
+                        <input disabled="disabled" type="text" class="form-control" name="concepto_recibo" [(ngModel)]="recibo.concepto_recibo" name="concepto_recibo" #concepto_recibo="ngModel">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="importe_recibo" class="col-form-label col-sm-2">Importe</label>
+                    <div class="col-sm-6">
+                        <input disabled="disabled" type="text" class="form-control" name="importe_recibo" [(ngModel)]="recibo.importe_recibo" name="importe_recibo" #importe_recibo="ngModel">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="fecha_recibo" class="col-form-label col-sm-2">Fecha</label>
+                    <div class="col-sm-6">
+                        <input disabled="disabled" type="datetime" class="form-control" name="fecha_recibo" [(ngModel)]="recibo.fecha_recibo" name="fecha_recibo" #fecha_recibo="ngModel">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
