@@ -53,6 +53,7 @@ const routes: Routes = [
   {path: 'ficheros/inquilinos/detalleinquilino/:id', component:DetalleinquilinoComponent},
   {path: 'recibos', component:RecibosComponent},
   {path: 'recibos/addrecibo', component:AddreciboComponent},
+  {path: 'recibos/:idinquilino', component:RecibosComponent},
   {path: 'recibos/detallerecibo/:id', component:DetallereciboComponent},
 ];
 

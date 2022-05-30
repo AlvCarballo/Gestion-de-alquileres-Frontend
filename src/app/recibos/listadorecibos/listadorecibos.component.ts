@@ -21,9 +21,8 @@ export class ListadorecibosComponent implements OnInit, PipeTransform  {
   inmuebles:any;
   propietarios:any;
   fincas:any;
-  titulo:string = "Listado de Inmuebles";
-  idfincainmueble:string = "";
-  idpropietarioinmueble:string = "";
+  titulo:string = "Listado de Recibos";
+  idinquilino:string = "";
   searchText: any;
 
   swalWithBootstrapButtons = swal.mixin({
@@ -37,10 +36,7 @@ export class ListadorecibosComponent implements OnInit, PipeTransform  {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private recibosService: RecibosService,
-    private inmueblesService:InmueblesService,
-    private propietarioService:PropietarioService,
-    private fincasService:FincasService) { }
+    private recibosService: RecibosService) { }
   transform(value: any, ...args: any[]) {
     throw new Error('Method not implemented.');
   }
@@ -49,21 +45,15 @@ export class ListadorecibosComponent implements OnInit, PipeTransform  {
     this.obtenerRecibos();
   }
   obtenerRecibos(){
-    this.recibosService.getRecibos()
+    this.activatedRoute.paramMap.subscribe(params => {
+      let idinquilino = params.get('idinquilino');
+      if(idinquilino){
+        this.idinquilino=idinquilino;
+      }
+      this.recibosService.getRecibos()
       .subscribe(respuesta =>{
         this.recibos = respuesta;
       })
-  }
-  obtenerPropietarios(){
-    this.propietarioService.getPropietarios()
-      .subscribe(respuesta =>{
-        this.propietarios = respuesta;
-      })
-  }
-  obtenerFincas(){
-    this.fincasService.getFincas()
-      .subscribe(respuesta =>{
-        this.fincas = respuesta;
-      })
+    })
   }
 }

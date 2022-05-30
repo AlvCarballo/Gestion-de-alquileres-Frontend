@@ -17,7 +17,20 @@
                 <th scope="col" class="text-center">Acciones</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody *ngIf="idinquilino.length>0">
+            <tr *ngFor="let recibo of recibos | filter:searchText | orderBy: 'fecha_recibo'">
+                <th scope="row" *ngIf="idinquilino==recibo.inquilino.id;"> {{ recibo.id }}</th>
+                <td *ngIf="idinquilino==recibo.inquilino.id;"> {{ recibo.fecha_recibo | date:'dd/MM/yyyy' }} </td>
+                <td *ngIf="idinquilino==recibo.inquilino.id;"> {{ recibo.concepto_recibo }}</td>
+                <td *ngIf="idinquilino==recibo.inquilino.id;"> {{ recibo.importe_recibo }}</td>
+                <td *ngIf="idinquilino==recibo.inquilino.id;"> {{ recibo.inmueble.finca.nombre_finca }}{{ recibo.inmueble.piso_inmueble }}{{ recibo.inmueble.letra_inmueble }}</td>
+                <td *ngIf="idinquilino==recibo.inquilino.id;"> {{ recibo.inquilino.nombre_inquilino }} {{ recibo.inquilino.apellidos_inquilino }}</td>
+                <td *ngIf="idinquilino==recibo.inquilino.id;" class="text-center">
+                    <button type="button" name="editar" [routerLink]="['/recibos/detallerecibo', recibo.id]" class="btn btn-primary btn-sm mx-1">Ver Recibo</button>
+                </td>
+            </tr>
+        </tbody>
+        <tbody *ngIf="idinquilino.length<=0">
             <tr *ngFor="let recibo of recibos | filter:searchText | orderBy: 'fecha_recibo'">
                 <th scope="row"> {{ recibo.id }}</th>
                 <td> {{ recibo.fecha_recibo | date:'dd/MM/yyyy' }} </td>

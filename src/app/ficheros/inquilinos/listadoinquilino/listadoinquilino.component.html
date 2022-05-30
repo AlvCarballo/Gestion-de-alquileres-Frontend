@@ -20,7 +20,7 @@
                 <td> {{ inquilino.telefono_inquilino }}</td>
                 <td> {{ inquilino.movil_inquilino }}</td>
                 <td class="text-center">
-                    <button type="button" name="editar" [routerLink]="['/ficheros/inquilinos/modinquilino/', inquilino.id]" class="btn btn-primary btn-sm mx-1">Ver Recibos</button>
+                    <button type="button" name="editar" [routerLink]="['/recibos/', inquilino.id]" class="btn btn-primary btn-sm mx-1">Ver Recibos</button>
                     <button type="button" name="editar" [routerLink]="['/ficheros/inquilinos/detalleinquilino/', inquilino.id]" class="btn btn-success btn-sm mx-1">Detalles</button>
                     <button type="button" name="editar" [routerLink]="['/ficheros/inquilinos/modinquilino/', inquilino.id]" class="btn btn-warning btn-sm mx-1">editar</button>
                     <button type="button" name="eliminar" (click)='delete(inquilino)' class="btn btn-danger btn-sm mx-1">eliminar</button>
