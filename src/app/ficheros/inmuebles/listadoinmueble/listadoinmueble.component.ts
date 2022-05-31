@@ -20,6 +20,7 @@ export class ListadoinmuebleComponent implements OnInit {
   titulo:string = "Listado de Inmuebles";
   idfincainmueble:string = "";
   idpropietarioinmueble:string = "";
+  paginador:any;
   searchText:any;
 
   swalWithBootstrapButtons = swal.mixin({
@@ -43,6 +44,13 @@ export class ListadoinmuebleComponent implements OnInit {
   }
   obtenerInmuebles(){
     this.activatedRoute.paramMap.subscribe(params => {
+      let page:number;
+      let parametro = params.get('page');
+      if(!parametro){
+        page = 0;
+      }else{
+        page = +parametro;
+      }
       let idfincainmueble = params.get('idfincainmueble');
       let idpropietarioinmueble = params.get('idpropietarioinmueble');
       if(idfincainmueble){
@@ -50,9 +58,10 @@ export class ListadoinmuebleComponent implements OnInit {
       }else if(idpropietarioinmueble){
         this.idpropietarioinmueble=idpropietarioinmueble;
       }
-      this.inmueblesService.getInmuebles()
-      .subscribe(respuesta =>{
-        this.inmuebles = respuesta;
+      this.inmueblesService.getInmueblesP(page)
+      .subscribe(response =>{
+        this.inmuebles = response.content as Inmueble[];
+        this.paginador = response;
       })
     })
   }

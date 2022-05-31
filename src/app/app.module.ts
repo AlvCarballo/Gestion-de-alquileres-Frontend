@@ -36,6 +36,10 @@ import { AddreciboComponent } from './recibos/addrecibo/addrecibo.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { DetallereciboComponent } from './recibos/detallerecibo/detallerecibo.component';
 import { PaginafincaComponent } from './ficheros/fincas/paginafinca/paginafinca.component';
+import { PaginainmuebleComponent } from './ficheros/inmuebles/paginainmueble/paginainmueble.component';
+import { PaginainquilinoComponent } from './ficheros/inquilinos/paginainquilino/paginainquilino.component';
+import { PaginapropietarioComponent } from './ficheros/propietarios/paginapropietario/paginapropietario.component';
+import { PaginarecibosComponent } from './recibos/paginarecibos/paginarecibos.component';
 
 const routes: Routes = [
   {path: '', redirectTo:'/ficheros', pathMatch:'full'},
@@ -44,16 +48,20 @@ const routes: Routes = [
   {path: 'ficheros/fincas/page/:page', component:FincasComponent},
   {path: 'ficheros/fincas/modfinca/:id', component:ModfincaComponent},
   {path: 'ficheros/propietarios', component:PropietariosComponent},
+  {path: 'ficheros/propietarios/page/:page', component:PropietariosComponent},
   {path: 'ficheros/propietarios/modpropietario/:id', component:ModpropietarioComponent},
   {path: 'ficheros/propietarios/detallepropietario/:id', component:DetallepropietarioComponent},
   {path: 'ficheros/inmuebles', component:InmueblesComponent},
+  {path: 'ficheros/inmuebles/page/:page', component:InmueblesComponent},
   {path: 'ficheros/inmuebles/finca/:idfincainmueble', component:InmueblesComponent},
   {path: 'ficheros/inmuebles/propietario/:idpropietarioinmueble', component:InmueblesComponent},
   {path: 'ficheros/inmuebles/modinmueble/:id', component:ModinmuebleComponent},
   {path: 'ficheros/inquilinos', component:InquilinosComponent},
+  {path: 'ficheros/inquilinos/page/:page', component:InquilinosComponent},
   {path: 'ficheros/inquilinos/modinquilino/:id', component:ModinquilinoComponent},
   {path: 'ficheros/inquilinos/detalleinquilino/:id', component:DetalleinquilinoComponent},
   {path: 'recibos', component:RecibosComponent},
+  {path: 'recibos/page/:page', component:RecibosComponent},
   {path: 'recibos/addrecibo', component:AddreciboComponent},
   {path: 'recibos/:idinquilino', component:RecibosComponent},
   {path: 'recibos/detallerecibo/:id', component:DetallereciboComponent},
@@ -88,6 +96,10 @@ const routes: Routes = [
     AddreciboComponent,
     DetallereciboComponent,
     PaginafincaComponent,
+    PaginainmuebleComponent,
+    PaginainquilinoComponent,
+    PaginapropietarioComponent,
+    PaginarecibosComponent,
   ],
   imports: [
     BrowserModule,

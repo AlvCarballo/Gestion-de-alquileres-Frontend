@@ -27,6 +27,11 @@ export class InmueblesService {
       map(response => response as Inmueble[])
     );
   }
+  getInmueblesP(page: number): Observable<any> {
+    return this.http.get(this.url+'/page/'+page).pipe(
+      map((response:any) => response as Inmueble[])
+    );
+  }
 
   create(inmueble: Inmueble) : Observable<Inmueble> {
     return this.http.post<Inmueble>(this.url, inmueble, {headers: this.httpHeaders})

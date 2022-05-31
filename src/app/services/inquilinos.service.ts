@@ -21,7 +21,11 @@ export class InquilinosService {
       map(response => response as Inquilino[])
     );
   }
-
+  getInquilinosP(page: number): Observable<any> {
+    return this.http.get(this.url+'/page/'+page).pipe(
+      map((response:any) => response as Inquilino[])
+    );
+  }
   create(inquilino: Inquilino) : Observable<Inquilino> {
     return this.http.post<Inquilino>(this.url, inquilino, {headers: this.httpHeaders})
   }

@@ -28,7 +28,11 @@ export class RecibosService {
       map(response => response as Recibo[])
     );
   }
-
+  getRecibosP(page: number): Observable<any> {
+    return this.http.get(this.url+'/page/'+page).pipe(
+      map((response:any) => response as Recibo[])
+    );
+  }
   create(recibo: Recibo) : Observable<Recibo> {
     return this.http.post<Recibo>(this.url, recibo, {headers: this.httpHeaders})
   }
@@ -43,4 +47,6 @@ export class RecibosService {
       })
     );
   }
+
+
 }

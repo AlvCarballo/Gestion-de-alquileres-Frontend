@@ -23,6 +23,7 @@ export class ListadorecibosComponent implements OnInit, PipeTransform  {
   fincas:any;
   titulo:string = "Listado de Recibos";
   idinquilino:string = "";
+  paginador:any;
   searchText: any;
 
   swalWithBootstrapButtons = swal.mixin({
@@ -46,13 +47,21 @@ export class ListadorecibosComponent implements OnInit, PipeTransform  {
   }
   obtenerRecibos(){
     this.activatedRoute.paramMap.subscribe(params => {
+      let page:number;
+      let parametro = params.get('page');
+      if(!parametro){
+        page = 0;
+      }else{
+        page = +parametro;
+      }
       let idinquilino = params.get('idinquilino');
       if(idinquilino){
         this.idinquilino=idinquilino;
       }
-      this.recibosService.getRecibos()
-      .subscribe(respuesta =>{
-        this.recibos = respuesta;
+      this.recibosService.getRecibosP(page)
+      .subscribe(response =>{
+        this.recibos = response.content as Recibo[];
+        this.paginador = response;
       })
     })
   }

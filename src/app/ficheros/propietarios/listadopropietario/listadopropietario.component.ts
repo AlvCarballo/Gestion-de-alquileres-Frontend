@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PropietarioService } from 'src/app/services/propietario.service';
 import { Propietario } from '../propietario';
 import swal from 'sweetalert2';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-listadopropietario',
@@ -9,6 +10,7 @@ import swal from 'sweetalert2';
 })
 export class ListadopropietarioComponent implements OnInit {
   propietarios:any;
+  paginador:any;
   searchText: any;
 
   swalWithBootstrapButtons = swal.mixin({
@@ -19,16 +21,29 @@ export class ListadopropietarioComponent implements OnInit {
     buttonsStyling: false
   })
 
-  constructor(private propietarioService:PropietarioService) { }
+  constructor(
+    private propietarioService:PropietarioService,
+    private activatedRouter: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.obtenerPropietarios()
   }
   obtenerPropietarios(){
-    this.propietarioService.getPropietarios()
-      .subscribe(respuesta =>{
-        this.propietarios = respuesta;
+    this.activatedRouter.paramMap.subscribe(params=>{
+      let page:number;
+      let parametro = params.get('page');
+      if(!parametro){
+        page = 0;
+      }else{
+        page = +parametro;
+      }
+
+      this.propietarioService.getPropietariosP(page)
+      .subscribe(response =>{
+        this.propietarios = response.content as Propietario[];
+        this.paginador = response;
       })
+    });
   }
 
   delete(propietario: Propietario): void {

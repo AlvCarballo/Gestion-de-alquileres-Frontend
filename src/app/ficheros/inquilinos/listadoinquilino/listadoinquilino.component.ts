@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { InquilinosService } from 'src/app/services/inquilinos.service';
 import swal from 'sweetalert2';
 import { Inquilino } from '../inquilino';
@@ -12,6 +13,7 @@ import { Inquilino } from '../inquilino';
 export class ListadoinquilinoComponent implements OnInit {
 
   inquilinos:any;
+  paginador:any;
   searchText:any;
 
   swalWithBootstrapButtons = swal.mixin({
@@ -22,16 +24,29 @@ export class ListadoinquilinoComponent implements OnInit {
     buttonsStyling: false
   })
 
-  constructor(private inquilinosService:InquilinosService) { }
+  constructor(
+    private inquilinosService:InquilinosService,
+    private activatedRouter: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.obtenerInquilinos()
   }
   obtenerInquilinos(){
-    this.inquilinosService.getInquilinos()
-      .subscribe(respuesta =>{
-        this.inquilinos = respuesta;
+    this.activatedRouter.paramMap.subscribe(params=>{
+      let page:number;
+      let parametro = params.get('page');
+      if(!parametro){
+        page = 0;
+      }else{
+        page = +parametro;
+      }
+
+      this.inquilinosService.getInquilinosP(page)
+      .subscribe(response =>{
+        this.inquilinos = response.content as Inquilino[];
+        this.paginador = response;
       })
+    });
   }
 
   delete(inquilino: Inquilino): void {
@@ -58,5 +73,4 @@ export class ListadoinquilinoComponent implements OnInit {
       }
     });
   }
-
 }

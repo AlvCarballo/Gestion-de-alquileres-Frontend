@@ -25,6 +25,11 @@ export class PropietarioService {
     );
   }
 
+  getPropietariosP(page: number): Observable<any> {
+    return this.http.get(this.url+'/page/'+page).pipe(
+      map((response:any) => response as Propietario[])
+    );
+  }
   create(propietario: Propietario) : Observable<Propietario> {
     return this.http.post<Propietario>(this.url, propietario, {headers: this.httpHeaders})
   }

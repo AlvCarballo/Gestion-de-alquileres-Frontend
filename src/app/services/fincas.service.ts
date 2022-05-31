@@ -28,11 +28,6 @@ export class FincasService {
       map((response) => response as Finca[])
     );
   }
-  getFincas1(page: number): Observable<any> {
-    return this.http.get(this.url+'/page/'+page).pipe(
-      map((response:any) => response.content as Finca[])
-    );
-  }
   getFincasP(page: number): Observable<any> {
     return this.http.get(this.url+'/page/'+page).pipe(
       map((response:any) => response as Finca[])
