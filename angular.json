@@ -68,14 +68,18 @@
                 },
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",
+                    "options": {
+                        "browserTarget": "alquileres:build:dev-server",
+                        "proxyConfig": "src/proxy.conf.json"
+                    },
                     "configurations": {
                         "production": {
                             "browserTarget": "alquileres:build:production",
-                            "proxyConfig": "proxy.conf.json"
+                            "proxyConfig": "src/proxy.conf.json"
                         },
                         "development": {
                             "browserTarget": "alquileres:build:development",
-                            "proxyConfig": "proxy.conf.json"
+                            "proxyConfig": "src/proxy.conf.json"
                         }
                     },
                     "defaultConfiguration": "development"

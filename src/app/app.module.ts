@@ -35,11 +35,13 @@ import { DetalleinquilinoComponent } from './ficheros/inquilinos/detalleinquilin
 import { AddreciboComponent } from './recibos/addrecibo/addrecibo.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { DetallereciboComponent } from './recibos/detallerecibo/detallerecibo.component';
+import { PaginafincaComponent } from './ficheros/fincas/paginafinca/paginafinca.component';
 
 const routes: Routes = [
   {path: '', redirectTo:'/ficheros', pathMatch:'full'},
   {path: 'ficheros', component:FincasComponent},
   {path: 'ficheros/fincas', component:FincasComponent},
+  {path: 'ficheros/fincas/page/:page', component:FincasComponent},
   {path: 'ficheros/fincas/modfinca/:id', component:ModfincaComponent},
   {path: 'ficheros/propietarios', component:PropietariosComponent},
   {path: 'ficheros/propietarios/modpropietario/:id', component:ModpropietarioComponent},
@@ -85,6 +87,7 @@ const routes: Routes = [
     DetalleinquilinoComponent,
     AddreciboComponent,
     DetallereciboComponent,
+    PaginafincaComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FincasService } from 'src/app/services/fincas.service';
 import swal from 'sweetalert2';
 import { Finca } from '../finca';
@@ -11,6 +11,7 @@ import { Finca } from '../finca';
 export class ListadofincasComponent implements OnInit {
 
   fincas:any;
+  paginador:any;
   searchText:any;
   swalWithBootstrapButtons = swal.mixin({
     customClass: {
@@ -21,17 +22,32 @@ export class ListadofincasComponent implements OnInit {
     buttonsStyling: false
   })
 
-  constructor(private fincasService:FincasService, private router: Router) { }
+  constructor(
+    private fincasService:FincasService,
+    private router: Router,
+    private activatedRouter: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.obtenerFincas();
-  }
-  obtenerFincas(){
-    this.fincasService.getFincas()
-      .subscribe(respuesta =>{
-        this.fincas = respuesta;
+
+    this.activatedRouter.paramMap.subscribe(params=>{
+      let page:number;
+      let parametro = params.get('page');
+      if(!parametro){
+        page = 0;
+      }else{
+        page = +parametro;
+      }
+
+      this.fincasService.getFincasP(page)
+      .subscribe(response =>{
+        this.fincas = response.content as Finca[];
+        this.paginador = response;
       })
+    });
+
+
   }
+
   delete(finca: Finca): void {
      this.swalWithBootstrapButtons.fire({
       icon: 'warning',
