@@ -7,6 +7,8 @@ export class Inmueble {
   ref_catastral_inmueble!: string;
   letra_inmueble!: string;
   piso_inmueble!: string;
+  alquilado_inmueble!: boolean;
+  precio_inmueble!: string;
   finca: Finca=new Finca();
   inquilino: Inquilino=new Inquilino();
   propietario: Propietario=new Propietario();

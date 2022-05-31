@@ -1,4 +1,4 @@
-<h1 class="text-center">{{titulo}}</h1>
+<h1 class="text-center mb-5">{{titulo}}</h1>
 <form #inmuebleForm="ngForm">
 
     <div class="form-group row">
@@ -43,6 +43,23 @@
             <input type="text" class="form-control" name="letra_inmueble" [(ngModel)]="inmueble.letra_inmueble" ngModel required>
         </div>
     </div>
+    <div class="form-group row">
+        <label for="letra_inmueble" class="col-form-label col-sm-2">Renta</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="letra_inmueble" [(ngModel)]="inmueble.precio_inmueble" ngModel required>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="letra_inmueble" class="col-form-label col-sm-2">¿Alquilado?</label>
+        <div class="col-sm-6">
+            <select name="tipo_persona_propietario" class="form-select" [(ngModel)]="inmueble.alquilado_inmueble" ngModel required>
+          <option value="true" selected>Si</option>
+          <option value="false">No</option>
+        </select>
+        </div>
+    </div>
+    <div class="col-9 text-center my-5">
+        <button class="btn btn-primary text-center" role="button" (click)='create()' [disabled]="inmuebleForm.invalid">Crear</button>
+    </div>
 
-    <button class="btn btn-primary" role="button" (click)='create()' [disabled]="inmuebleForm.invalid">Crear</button>
 </form>

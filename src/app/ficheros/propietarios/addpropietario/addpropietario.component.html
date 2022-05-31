@@ -1,4 +1,4 @@
-<h1 class="text-center">{{titulo}}</h1>
+<h1 class="text-center mb-5">{{titulo}}</h1>
 <form #propietarioForm="ngForm">
     <div class="form-group row">
         <label for="tipo_persona_propietario" class="col-form-label col-sm-2">Tipo Documento</label>
@@ -81,7 +81,7 @@
             <input type="text" class="form-control" name="cc_propietario" [(ngModel)]="propietario.cc_propietario">
         </div>
     </div>
-    <div class="text-center">
+    <div class="col-9 text-center my-5">
         <button class="btn btn-primary my-3" role="button" (click)='create()' [disabled]="propietarioForm.invalid">Crear</button>
     </div>
 

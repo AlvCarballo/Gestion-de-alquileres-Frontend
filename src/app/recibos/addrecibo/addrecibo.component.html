@@ -1,10 +1,10 @@
 <app-navbar></app-navbar>
 <a class="btn btn-warning m-3" href="recibos" role="button">Volver</a>
-<div class="card-body">
-    <h1 class="text-center">{{titulo}}</h1>
+<div class="card-body offset-2">
+    <h1 class="text-center mb-5">{{titulo}}</h1>
     <form #reciboForm="ngForm">
         <div class="form-group row">
-            <label for="inmueble.id" class="col-form-label col-sm-2">Seleccione una inmueble:</label>
+            <label for="inmueble.id" class="col-form-label col-sm-2">Seleccione un inmueble:</label>
             <div class="col-sm-6">
                 <select class="form-select" [(ngModel)]="recibo.inmueble.id" name="inmueble.id" #inmueble.id="ngModel" ngModel required>
               <option value={{inmueble.id}} *ngFor="let inmueble of inmuebles">{{inmueble.finca.nombre_finca}} {{inmueble.piso_inmueble}} {{inmueble.letra_inmueble}}</option>
@@ -40,7 +40,8 @@
                 <input type="number" class="form-control" name="importe_recibo" [(ngModel)]="recibo.importe_recibo" ngModel required>
             </div>
         </div>
-
-        <button class="btn btn-primary" role="button" (click)='create()' [disabled]="reciboForm.invalid">Crear</button>
+        <div class="col-9 text-center my-5">
+            <button class="btn btn-primary" role="button" (click)='create()' [disabled]="reciboForm.invalid">Crear</button>
+        </div>
     </form>
 </div>
