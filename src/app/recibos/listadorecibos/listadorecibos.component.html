@@ -1,5 +1,6 @@
 <div class="container">
     <a name="" id="" class="btn btn-success m-3" href="recibos/addrecibo" role="button">Crear Recibo</a>
+    <button class="btn btn-success m-3" (click)="generar()">Generar Recibos</button>
     <div class="col-4 offset-8">
         <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="on" placeholder="Buscar">
     </div>
@@ -45,4 +46,6 @@
         </tbody>
     </table>
 </div>
-<app-paginarecibos *ngIf="paginador" [paginador]="paginador"></app-paginarecibos>
+<div class="text-center">
+    <app-paginarecibos *ngIf="paginador" [paginador]="paginador"></app-paginarecibos>
+</div>

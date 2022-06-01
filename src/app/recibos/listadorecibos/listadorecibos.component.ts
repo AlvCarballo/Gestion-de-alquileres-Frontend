@@ -16,15 +16,17 @@ import { Recibo } from '../recibo';
 })
 
 export class ListadorecibosComponent implements OnInit, PipeTransform  {
-
+  newrecibo:Recibo =new Recibo();
   recibos:any;
   inmuebles:any;
+  alqinmuebles:any;
   propietarios:any;
   fincas:any;
   titulo:string = "Listado de Recibos";
   idinquilino:string = "";
   paginador:any;
   searchText: any;
+
 
   swalWithBootstrapButtons = swal.mixin({
     customClass: {
@@ -37,7 +39,9 @@ export class ListadorecibosComponent implements OnInit, PipeTransform  {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private recibosService: RecibosService) { }
+    private recibosService: RecibosService,
+    private inmueblesService:InmueblesService,
+    private reciboService:RecibosService,) { }
   transform(value: any, ...args: any[]) {
     throw new Error('Method not implemented.');
   }
@@ -64,5 +68,31 @@ export class ListadorecibosComponent implements OnInit, PipeTransform  {
         this.paginador = response;
       })
     })
+  }
+  generar(){
+    this.inmueblesService.getInmuebles()
+      .subscribe(response =>{
+        this.inmuebles = response;
+        this.inmuebles.forEach((element:any) => {
+          if(element.alquilado_inmueble==true){
+           this.newrecibo.id=null;
+           this.newrecibo.concepto_recibo="Alquiler del mes de "+new Intl.DateTimeFormat('es-ES', { month: 'long'}).format(new Date())+" del "+new Intl.DateTimeFormat('es-ES', { year: 'numeric'}).format(new Date());
+            this.newrecibo.fecha_recibo=new Date();
+            this.newrecibo.importe_recibo=element.precio_inmueble;
+            this.newrecibo.inmueble.id=element.id;
+            this.newrecibo.inquilino.id=element.inquilino.id;
+
+            this.reciboService.create(this.newrecibo)
+        .subscribe((newrecibo) => {
+          this.router.navigate(['recibos'])
+          swal.fire('Generar Recibos', `Recibos generados correctamente`, 'success')
+         }
+        );
+        console.log(this.newrecibo);
+
+          }
+        });
+      })
+      console.log( this.alqinmuebles);
   }
 }

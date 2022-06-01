@@ -2,6 +2,6 @@
 
     <li class="page-item" *ngFor="let pagina of paginas">
         <span class="page-link" *ngIf="pagina-1 == paginador.number">{{pagina}}</span>
-        <a class="page-link" *ngIf="pagina-1 != paginador.number" [routerLink]="['/ficheros/inmuebles/page',pagina-1]">{{pagina}}</a>
+        <a class="page-link" *ngIf="pagina-1 != paginador.number" [routerLink]="['/recibos/page',pagina-1]">{{pagina}}</a>
     </li>
 </ul>
