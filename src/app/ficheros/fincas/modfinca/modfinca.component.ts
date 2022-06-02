@@ -47,7 +47,7 @@ export class ModfincaComponent implements OnInit {
   update():void{
     this.fincaService.update(this.finca)
     .subscribe( finca => {
-      this.router.navigate(['/fichero/fincas']);
+      this.router.navigate(['ficheros/fincas']);
       swal.fire('Finca Actualizada', `Finca ${finca.nombre_finca} actualizada con éxito!`, 'success');
     },
     err => {

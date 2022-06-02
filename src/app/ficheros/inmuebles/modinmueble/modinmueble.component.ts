@@ -80,7 +80,7 @@ export class ModinmuebleComponent implements OnInit {
   update():void{
     this.inmuebleService.update(this.inmueble)
     .subscribe( inmueble => {
-      this.router.navigate(['/fichero/inmuebles']);
+      this.router.navigate(['ficheros/inmuebles']);
       swal.fire('Inmueble Actualizado', `Inmueble ${inmueble.nombre_inmueble} actualizao con éxito!`, 'success');
     },
     err => {

@@ -23,7 +23,7 @@ export class AddinquilinoComponent implements OnInit {
   create(): void {
     this.inquilinosService.create(this.inquilino)
       .subscribe(inquilino => {
-        this.router.navigate(['/inquilinos'])
+        this.router.navigate(['ficheros//inquilinos'])
         swal.fire('Nuevo inquilino', `Inquilino ${inquilino.nombre_inquilino} creada con éxito!`, 'success')
 
        }

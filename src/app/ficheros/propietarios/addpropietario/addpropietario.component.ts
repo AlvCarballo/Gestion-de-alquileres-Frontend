@@ -23,7 +23,7 @@ export class AddpropietarioComponent implements OnInit {
   create(): void {
     this.propietarioService.create(this.propietario)
       .subscribe(propietario => {
-        this.router.navigate(['/propietario'])
+        this.router.navigate(['ficheros/propietarios'])
         swal.fire('Nueva finca', `Finca ${propietario.nombre_propietario} creada con éxito!`, 'success')
 
        }
