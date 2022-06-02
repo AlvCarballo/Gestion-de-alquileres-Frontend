@@ -14,7 +14,7 @@ import { Inquilino } from '../inquilino';
 export class DetalleinquilinoComponent implements OnInit {
 
   inquilino:Inquilino =new Inquilino();
-  titulo:string = "Modificar Propietario";
+  titulo:string = "Detalle Inquilino";
   errores!: string[];
 
   constructor(
