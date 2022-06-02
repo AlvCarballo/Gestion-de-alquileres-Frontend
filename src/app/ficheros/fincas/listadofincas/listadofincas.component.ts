@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FincasService } from 'src/app/services/fincas.service';
 import swal from 'sweetalert2';
@@ -46,6 +46,23 @@ export class ListadofincasComponent implements OnInit {
     });
 
 
+  }
+  ngOnChanges() {
+    this.activatedRouter.paramMap.subscribe(params=>{
+      let page:number;
+      let parametro = params.get('page');
+      if(!parametro){
+        page = 0;
+      }else{
+        page = +parametro;
+      }
+
+      this.fincasService.getFincasP(page)
+      .subscribe(response =>{
+        this.fincas = response.content as Finca[];
+        this.paginador = response;
+      })
+    });
   }
 
   delete(finca: Finca): void {

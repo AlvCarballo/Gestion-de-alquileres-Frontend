@@ -42,6 +42,9 @@ export class ListadoinmuebleComponent implements OnInit {
     this.obtenerPropietarios();
     this.obtenerFincas();
   }
+  ngOnChanges() {
+    this.obtenerInmuebles();
+  }
   obtenerInmuebles(){
     this.activatedRoute.paramMap.subscribe(params => {
       let page:number;

@@ -31,6 +31,10 @@ export class ListadoinquilinoComponent implements OnInit {
   ngOnInit(): void {
     this.obtenerInquilinos()
   }
+
+  ngOnChanges() {
+    this.obtenerInquilinos();
+  }
   obtenerInquilinos(){
     this.activatedRouter.paramMap.subscribe(params=>{
       let page:number;

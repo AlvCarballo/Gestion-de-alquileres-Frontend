@@ -28,6 +28,9 @@ export class ListadopropietarioComponent implements OnInit {
   ngOnInit(): void {
     this.obtenerPropietarios()
   }
+  ngOnChanges() {
+    this.obtenerPropietarios();
+  }
   obtenerPropietarios(){
     this.activatedRouter.paramMap.subscribe(params=>{
       let page:number;

@@ -49,6 +49,9 @@ export class ListadorecibosComponent implements OnInit, PipeTransform  {
   ngOnInit(): void {
     this.obtenerRecibos();
   }
+  ngOnChanges() {
+    this.obtenerRecibos();
+  }
   obtenerRecibos(){
     this.activatedRoute.paramMap.subscribe(params => {
       let page:number;
