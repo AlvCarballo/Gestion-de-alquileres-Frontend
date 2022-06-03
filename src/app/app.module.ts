@@ -42,7 +42,8 @@ import { PaginapropietarioComponent } from './ficheros/propietarios/paginapropie
 import { PaginarecibosComponent } from './recibos/paginarecibos/paginarecibos.component';
 
 const routes: Routes = [
-  {path: '', redirectTo:'/ficheros', pathMatch:'full'},
+  {path: '', redirectTo:'/login', pathMatch:'full'},
+  {path: 'login', component:LoginComponent},
   {path: 'ficheros', component:FincasComponent},
   {path: 'ficheros/fincas', component:FincasComponent},
   {path: 'ficheros/fincas/page/:page', component:FincasComponent},

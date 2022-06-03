@@ -1,8 +1,10 @@
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, map, catchError, throwError } from 'rxjs';
 import Swal from 'sweetalert2';
 import { Inquilino } from '../ficheros/inquilinos/inquilino';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,34 +12,77 @@ import { Inquilino } from '../ficheros/inquilinos/inquilino';
 export class InquilinosService {
   url:string = 'http://localhost:8080/api/inquilinos';
 
-  httpHeaders= new HttpHeaders()
-  .set('content-type', 'application/json')
-  .set('Access-Control-Allow-Origin', '*');
+  httpHeaders= new HttpHeaders();
 
-  constructor(private http:HttpClient) { }
+  constructor(
+    private http:HttpClient,
+    private router: Router,
+    private authService: AuthService) { }
 
+  private isNoAutorizado(e:any): boolean {
+    if (e.status == 401 || e.status==403) {
+      this.router.navigate(['/login']);
+      return true;
+    }
+    return false;
+  }
+  private agregarAuthorizationHeader() {
+    let token = this.authService.token;
+    if (token != null) {
+      return this.httpHeaders.append('Authorization', 'Bearer ' + token);
+    }
+    return this.httpHeaders;
+  }
   getInquilinos(): Observable<Inquilino[]> {
-    return this.http.get(this.url).pipe(
-      map(response => response as Inquilino[])
+    return this.http.get(this.url,{ headers: this.agregarAuthorizationHeader() }).pipe(
+      map(response => response as Inquilino[]),
+      catchError(e=>{
+        if(this.isNoAutorizado(e)){
+          return throwError(e);
+        }
+        return throwError(e);
+      })
     );
   }
   getInquilinosP(page: number): Observable<any> {
-    return this.http.get(this.url+'/page/'+page).pipe(
-      map((response:any) => response as Inquilino[])
+    return this.http.get(this.url+'/page/'+page,{ headers: this.agregarAuthorizationHeader() }).pipe(
+      map((response:any) => response as Inquilino[]),
+      catchError(e=>{
+        if(this.isNoAutorizado(e)){
+          return throwError(e);
+        }
+        return throwError(e);
+      })
     );
   }
   create(inquilino: Inquilino) : Observable<Inquilino> {
-    return this.http.post<Inquilino>(this.url, inquilino, {headers: this.httpHeaders})
+    return this.http.post<Inquilino>(this.url, inquilino, { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e=>{
+        if(this.isNoAutorizado(e)){
+          return throwError(e);
+        }
+        return throwError(e);
+      })
+    );
   }
 
   getInquilino(id: any): Observable<Inquilino>{
-    return this.http.get<Inquilino>(`${this.url}/${id}`)
+    return this.http.get<Inquilino>(`${this.url}/${id}`,{ headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e=>{
+        if(this.isNoAutorizado(e)){
+          return throwError(e);
+        }
+        return throwError(e);
+      })
+    );
   }
 
   update(inquilino: Inquilino): Observable<Inquilino>{
-    return this.http.put<any>(`${this.url}/${inquilino.id}`, inquilino, { headers: this.httpHeaders }).pipe(
+    return this.http.put<any>(`${this.url}/${inquilino.id}`, inquilino, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
-
+        if(this.isNoAutorizado(e)){
+          return throwError(e);
+        }
         if (e.status == 400) {
           return throwError(e);
         }
@@ -50,6 +95,13 @@ export class InquilinosService {
   }
 
   delete(id: number): Observable<Inquilino>{
-    return this.http.delete<Inquilino>(`${this.url}/${id}`, {headers: this.httpHeaders})
+    return this.http.delete<Inquilino>(`${this.url}/${id}`, { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e=>{
+        if(this.isNoAutorizado(e)){
+          return throwError(e);
+        }
+        return throwError(e);
+      })
+    );
   }
 }
