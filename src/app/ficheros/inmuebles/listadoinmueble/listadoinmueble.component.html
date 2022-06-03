@@ -31,7 +31,7 @@
                 <td *ngIf="idfincainmueble==inmueble.finca.id">{{ inmueble.piso_inmueble }} {{ inmueble.letra_inmueble }}</td>
                 <td *ngIf="idfincainmueble==inmueble.finca.id" class="text-center">
                     <button type="button" name="editar" [routerLink]="['/ficheros/inmuebles/modinmueble/', inmueble.id]" class="btn btn-warning btn-sm">editar</button>
-                    <button type="button" name="eliminar" (click)='delete(inmueble)' class="btn btn-danger btn-sm">eliminar</button>
+                    <button *ngIf="authService.hasRole('ROLE_ADMIN')" type="button" name="eliminar" (click)='delete(inmueble)' class="btn btn-danger btn-sm">eliminar</button>
                 </td>
             </tr>
         </tbody>
@@ -43,7 +43,7 @@
                 <td *ngIf="idpropietarioinmueble==inmueble.propietario.id">{{ inmueble.piso_inmueble }} {{ inmueble.letra_inmueble }}</td>
                 <td *ngIf="idpropietarioinmueble==inmueble.propietario.id" class="text-center">
                     <button type="button" name="editar" [routerLink]="['/ficheros/inmuebles/modinmueble/', inmueble.id]" class="btn btn-warning btn-sm">editar</button>
-                    <button type="button" name="eliminar" (click)='delete(inmueble)' class="btn btn-danger btn-sm">eliminar</button>
+                    <button *ngIf="authService.hasRole('ROLE_ADMIN')" type="button" name="eliminar" (click)='delete(inmueble)' class="btn btn-danger btn-sm">eliminar</button>
                 </td>
             </tr>
         </tbody>
@@ -55,7 +55,7 @@
                 <td>{{ inmueble.piso_inmueble }} {{ inmueble.letra_inmueble }}</td>
                 <td class="text-center">
                     <button type="button" name="editar" [routerLink]="['/ficheros/inmuebles/modinmueble/', inmueble.id]" class="btn btn-warning btn-sm">editar</button>
-                    <button type="button" name="eliminar" (click)='delete(inmueble)' class="btn btn-danger btn-sm">eliminar</button>
+                    <button *ngIf="authService.hasRole('ROLE_ADMIN')" type="button" name="eliminar" (click)='delete(inmueble)' class="btn btn-danger btn-sm">eliminar</button>
                 </td>
             </tr>
         </tbody>

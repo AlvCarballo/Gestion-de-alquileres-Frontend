@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import { FincasService } from 'src/app/services/fincas.service';
 import { InmueblesService } from 'src/app/services/inmuebles.service';
 import { PropietarioService } from 'src/app/services/propietario.service';
@@ -35,7 +36,8 @@ export class ListadoinmuebleComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private propietarioService:PropietarioService,
-    private fincasService:FincasService) { }
+    private fincasService:FincasService,
+    public authService: AuthService) { }
 
   ngOnInit(): void {
     this.obtenerInmuebles();

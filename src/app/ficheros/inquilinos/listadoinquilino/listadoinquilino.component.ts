@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import { InquilinosService } from 'src/app/services/inquilinos.service';
 import swal from 'sweetalert2';
 import { Inquilino } from '../inquilino';
@@ -26,7 +27,8 @@ export class ListadoinquilinoComponent implements OnInit {
 
   constructor(
     private inquilinosService:InquilinosService,
-    private activatedRouter: ActivatedRoute) { }
+    private activatedRouter: ActivatedRoute,
+    public authService: AuthService) { }
 
   ngOnInit(): void {
     this.obtenerInquilinos()

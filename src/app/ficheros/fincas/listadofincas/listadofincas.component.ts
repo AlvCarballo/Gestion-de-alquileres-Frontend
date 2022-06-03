@@ -1,5 +1,6 @@
 import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import { FincasService } from 'src/app/services/fincas.service';
 import swal from 'sweetalert2';
 import { Finca } from '../finca';
@@ -25,7 +26,9 @@ export class ListadofincasComponent implements OnInit {
   constructor(
     private fincasService:FincasService,
     private router: Router,
-    private activatedRouter: ActivatedRoute) { }
+    private activatedRouter: ActivatedRoute,
+    public authService: AuthService
+    ) { }
 
   ngOnInit(): void {
 

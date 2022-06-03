@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import swal from 'sweetalert2';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,10 +12,11 @@ import swal from 'sweetalert2';
 export class NavbarComponent {
   title: string = 'Alquileres'
 
-  constructor( private router: Router) { }
+  constructor( public authService: AuthService, private router: Router) { }
   logout(): void {
-
-    swal.fire('Logout', `Hola , has cerrado sesión con éxito!`, 'success');
+    let username = this.authService.usuario.username;
+    this.authService.logout();
+    swal.fire('Logout', `Hola ${username} , has cerrado sesión con éxito!`, 'success');
     this.router.navigate(['/login']);
   }
 

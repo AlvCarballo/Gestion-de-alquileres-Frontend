@@ -3,6 +3,7 @@ import { PropietarioService } from 'src/app/services/propietario.service';
 import { Propietario } from '../propietario';
 import swal from 'sweetalert2';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-listadopropietario',
@@ -23,7 +24,8 @@ export class ListadopropietarioComponent implements OnInit {
 
   constructor(
     private propietarioService:PropietarioService,
-    private activatedRouter: ActivatedRoute) { }
+    private activatedRouter: ActivatedRoute,
+    public authService: AuthService) { }
 
   ngOnInit(): void {
     this.obtenerPropietarios()
