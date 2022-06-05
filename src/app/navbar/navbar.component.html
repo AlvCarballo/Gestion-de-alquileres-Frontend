@@ -5,7 +5,7 @@
   </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <div class="col-md-10">
+        <div class="col-md-9">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}" aria-current="page" [routerLink]="['/ficheros']">Ficheros</a>
@@ -18,7 +18,7 @@
         <div class="col-md-auto">
             <ul class="navbar-nav navbar-right">
                 <li *ngIf="!authService.isAuthenticated()"><a [routerLink]="['/login']" class="btn btn-outline-primary">Sign In</a></li>
-                <li *ngIf="authService.isAuthenticated()"><a (click)="logout()" class="btn btn-outline-danger">Logout</a></li>
+                <li *ngIf="authService.isAuthenticated()"><small class="text-white">Bienvenido {{authService.usuario.username}} </small> <a (click)="logout()" class="btn btn-outline-danger">Logout</a></li>
             </ul>
         </div>
     </div>

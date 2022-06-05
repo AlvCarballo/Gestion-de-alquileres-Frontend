@@ -26,7 +26,7 @@ export class ListadoinmuebleComponent implements OnInit {
 
   swalWithBootstrapButtons = swal.mixin({
     customClass: {
-      confirmButton: 'btn btn-success',
+      confirmButton: 'btn btn-success  mx-2',
       cancelButton: 'btn btn-danger'
     },
     buttonsStyling: false
@@ -85,11 +85,12 @@ export class ListadoinmuebleComponent implements OnInit {
 
   delete(inmueble: Inmueble): void {
     this.swalWithBootstrapButtons.fire({
+      icon: 'warning',
       title: 'Está seguro?',
       text: `¿Seguro que desea eliminar al inmueble ${inmueble.ref_catastral_inmueble} ?`,
       showCancelButton: true,
-      confirmButtonText: 'Yes, delete it!',
-      cancelButtonText: 'No, cancel!'
+      confirmButtonText: 'Si',
+      cancelButtonText: 'No'
     }).then((result) => {
       if (result.isConfirmed) {
 

@@ -19,7 +19,7 @@ export class ListadoinquilinoComponent implements OnInit {
 
   swalWithBootstrapButtons = swal.mixin({
     customClass: {
-      confirmButton: 'btn btn-success',
+      confirmButton: 'btn btn-success mx-2',
       cancelButton: 'btn btn-danger'
     },
     buttonsStyling: false
@@ -60,8 +60,8 @@ export class ListadoinquilinoComponent implements OnInit {
       title: 'Está seguro?',
       text: `¿Seguro que desea eliminar al propietario ${inquilino.nombre_inquilino} ?`,
       showCancelButton: true,
-      confirmButtonText: 'Yes, delete it!',
-      cancelButtonText: 'No, cancel!'
+      confirmButtonText: 'Si',
+      cancelButtonText: 'No'
     }).then((result) => {
       if (result.isConfirmed) {
 
