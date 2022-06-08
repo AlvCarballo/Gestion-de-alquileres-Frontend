@@ -37,7 +37,7 @@ export class ModpropietarioComponent implements OnInit {
     this.propietarioService.update(this.propietario)
     .subscribe( propietario => {
       this.router.navigate(['ficheros/propietarios']);
-      swal.fire('Propietario Actualizado', `Propietario ${propietario.nombre_propietario} actualizado con éxito!`, 'success');
+      swal.fire('Propietario Actualizado', `Propietario actualizado con éxito!`, 'success');
     },
     err => {
       this.errores = err.error.errors as string[];

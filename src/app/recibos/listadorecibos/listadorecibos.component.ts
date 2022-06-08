@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Inmueble } from 'src/app/ficheros/inmuebles/inmueble';
 import { FincasService } from 'src/app/services/fincas.service';
 import { InmueblesService } from 'src/app/services/inmuebles.service';
+import { InquilinosService } from 'src/app/services/inquilinos.service';
 import { PropietarioService } from 'src/app/services/propietario.service';
 import { RecibosService } from 'src/app/services/recibos.service';
 import swal from 'sweetalert2';
@@ -21,6 +22,7 @@ export class ListadorecibosComponent implements OnInit, PipeTransform  {
   inmuebles:any;
   alqinmuebles:any;
   propietarios:any;
+  inquilinos:any;
   fincas:any;
   titulo:string = "Listado de Recibos";
   idinquilino:string = "";
@@ -41,6 +43,7 @@ export class ListadorecibosComponent implements OnInit, PipeTransform  {
     private activatedRoute: ActivatedRoute,
     private recibosService: RecibosService,
     private inmueblesService:InmueblesService,
+    private inquilinoService:InquilinosService,
     private reciboService:RecibosService,) { }
   transform(value: any, ...args: any[]) {
     throw new Error('Method not implemented.');
@@ -48,6 +51,7 @@ export class ListadorecibosComponent implements OnInit, PipeTransform  {
 
   ngOnInit(): void {
     this.obtenerRecibos();
+    this.obtenerInquilinos();
   }
   ngOnChanges() {
     this.obtenerRecibos();
@@ -71,6 +75,12 @@ export class ListadorecibosComponent implements OnInit, PipeTransform  {
         this.paginador = response;
       })
     })
+  }
+  obtenerInquilinos(){
+    this.inquilinoService.getInquilinos()
+      .subscribe(respuesta =>{
+        this.inquilinos = respuesta;
+      })
   }
   generar(){
     this.inmueblesService.getInmuebles()

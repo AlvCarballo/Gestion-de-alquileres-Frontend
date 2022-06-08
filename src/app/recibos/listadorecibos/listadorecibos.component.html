@@ -5,6 +5,11 @@
         <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="on" placeholder="Buscar">
     </div>
     <h1 class="text-center mt-5">Listado de Recibos</h1>
+    <div *ngFor="let inquilino of  inquilinos | filter:searchText">
+        <div *ngIf="idinquilino==inquilino.id;">
+            <h2 class="text-center">de {{inquilino.nombre_inquilino}} {{inquilino.apellidos_inquilino}}</h2>
+        </div>
+    </div>
     <table class="table mt-5">
         <thead>
             <tr>

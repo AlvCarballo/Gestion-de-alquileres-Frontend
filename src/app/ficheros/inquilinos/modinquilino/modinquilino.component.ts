@@ -39,7 +39,7 @@ export class ModinquilinoComponent implements OnInit {
     this.inquilinoService.update(this.inquilino)
     .subscribe( inquilino => {
       this.router.navigate(['ficheros/inquilinos']);
-      swal.fire('Inquilino Actualizado', `Inquilino ${inquilino.nombre_inquilino} actualizado con éxito!`, 'success');
+      swal.fire('Inquilino Actualizado', `Inquilino actualizado con éxito!`, 'success');
     },
     err => {
       this.errores = err.error.errors as string[];

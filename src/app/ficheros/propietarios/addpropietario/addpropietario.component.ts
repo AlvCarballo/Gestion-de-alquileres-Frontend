@@ -24,7 +24,7 @@ export class AddpropietarioComponent implements OnInit {
     this.propietarioService.create(this.propietario)
       .subscribe(propietario => {
         this.router.navigate(['ficheros/propietarios'])
-        swal.fire('Nueva finca', `Finca ${propietario.nombre_propietario} creada con éxito!`, 'success')
+        swal.fire('Nuevo propietario', `Propietario creado con éxito!`, 'success')
 
        }
       );
